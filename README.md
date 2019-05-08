@@ -1,2 +1,2 @@
-# AlfR
+# alfr
 R Package for Alfresco
