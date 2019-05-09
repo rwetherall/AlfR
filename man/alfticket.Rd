@@ -2,20 +2,20 @@
 % Please edit documentation in R/alfticket.R
 \name{alfticket}
 \alias{alfticket}
-\title{TODO}
+\title{Get Alfresco authentication ticket}
 \usage{
-alfticket(uri, userid, password)
+alfticket(uri, username, password)
 }
 \arguments{
-\item{uri}{TODO}
+\item{uri}{base uri to Alfresco repository}
 
-\item{userid}{TODO}
+\item{username}{user name}
 
-\item{password}{TODO}
+\item{password}{password}
 }
 \value{
-TODO
+Alfresco ticket that can be used to authenticate subsequent calls to the repository
 }
 \description{
-TODO
+Get Alfresco authentication ticket for specified respository with provided credentials.
 }

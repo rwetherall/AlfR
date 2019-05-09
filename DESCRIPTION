@@ -1,4 +1,4 @@
-Package: AlfR
+Package: alfr
 Type: Package
 Title: R Package for Alfresco
 Version: 0.1.0
@@ -9,11 +9,12 @@ License: GPL-3 | file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
-Imports:
+Imports: 
   httr,
   jsonlite,
   magrittr
-Suggests:
-  testthat,
+Suggests: 
   devtools,
-  roxygen2
+  httptest,
+  roxygen2,
+  testthat
