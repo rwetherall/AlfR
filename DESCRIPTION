@@ -9,3 +9,11 @@ License: GPL-3 | file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
+Imports:
+  httr,
+  jsonlite,
+  magrittr
+Suggests:
+  testthat,
+  devtools,
+  roxygen2
