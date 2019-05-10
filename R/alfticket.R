@@ -21,15 +21,15 @@ alfticket <- function (uri, username, password) {
     paste(uri, endpoint.tickets, sep = "") %>%
     POST(body=list(userId = username, password = password), encode = "json")
 
-  if (http_error(response)) {
+  # check for error
+  if (http_error(response))
 
-    # TODO do something!
-    NULL
+    # indicate authentication failed
+    if (response$status_code == 403) stop("Authentication failed, please check your username and password are correct.")
 
-  } else {
+    # otherwise stop with error message
+    else stop(http_status(response)$message)
 
-    # get the ticket from the response
-    fromJSON(content(response, "text"), flatten = TRUE)$entry$id
-  }
-
+  # get the ticket from the response
+  else fromJSON(content(response, "text"), flatten = TRUE)$entry$id
 }
