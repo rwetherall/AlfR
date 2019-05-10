@@ -14,7 +14,7 @@ endpoint.tickets <- "/alfresco/api/-default-/public/authentication/versions/1/ti
 #' @return Alfresco ticket that can be used to authenticate subsequent calls to the repository
 #' @export
 ##
-alfticket <- function (uri, username, password) {
+alf_ticket <- function (uri, username, password) {
 
   # try to get the authentication ticket for the repository
   response <-

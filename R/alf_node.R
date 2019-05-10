@@ -3,12 +3,11 @@
 #' TODO
 #' @description
 #' TODO
+#' @param ticket TODO
 #' @param path TODO
 #' @return TODO
 #' @export
 ##
-alfnode <- function (path) {
-
-
+alf_node <- function (ticket, path) {
 
 }
