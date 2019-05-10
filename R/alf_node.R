@@ -1,3 +1,6 @@
+require(httr)
+require(magrittr)
+
 ##
 #' @title
 #' TODO
@@ -10,4 +13,15 @@
 ##
 alf_node <- function (ticket, path) {
 
+  response <- alf_endpoints$node(ticket$uri) %>% alf_GET(ticket, list(relativePath=path))
+
+  content <- function() {
+    ## TODO
+  }
+
+  list (
+    id = response$entry$id
+  )
 }
+
+
