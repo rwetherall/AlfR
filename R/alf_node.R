@@ -13,7 +13,7 @@ require(magrittr)
 ##
 alf_node <- function (session, path) {
 
-  response <- alf_endpoints$node(session$server) %>% alf_GET(session, list(relativePath=path))
+  response <- alf_GET(session$node_endpoint(), session$ticket, list(relativePath=path))
 
   content <- function() {
     ## TODO

@@ -1,9 +1,11 @@
 require(httr)
 require(magrittr)
 
-# endpoint prefix
-endpoint_prefix <- "/alfresco/api/-default-/public/"
-endpoint_ticket  <- "authentication/versions/1/tickets"
+# base endpoint helper
+base_endpoint <- function(server, endpoint) paste(server, "/alfresco/api/-default-/public/", endpoint, sep="")
+
+# tickets endpoint function
+tickets_endpoint <- function(server) base_endpoint(server, "authentication/versions/1/tickets")
 
 ##
 #' @title
@@ -21,7 +23,7 @@ alf_session <- function (server, username, password) {
 
   # try to get the authentication ticket for the repository
   response <-
-    paste(server, endpoint_prefix, endpoint_ticket, sep="") %>%
+    tickets_endpoint(server) %>%
     POST(body=list(userId = username, password = password), encode = "json")
 
   # check for error
@@ -36,11 +38,16 @@ alf_session <- function (server, username, password) {
   # get the ticket from the response
   else {
 
+    # define endpoints for session
+    node_endpoint <- function(node_id = "-root-") base_endpoint(server, "alfresco/versions/1/nodes/") %>% paste(node_id, sep="")
+    node_content_endpoint <- function(node_id) node_endpoint(node_id) %>% paste("/content", sep="")
 
-
+    # session details
     list(
       server = server,
-      ticket = fromJSON(content(response, "text"), flatten = TRUE)$entry$id
+      ticket = fromJSON(content(response, "text"), flatten = TRUE)$entry$id,
+      node_endpoint = node_endpoint,
+      node_content_endpoint = node_content_endpoint
     )
   }
 }

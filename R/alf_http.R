@@ -13,7 +13,7 @@ require(jsonlite)
 ##
 alf_GET <- function (endpoint, ticket, params=list())
   add_params(endpoint, params) %>%
-  GET(add_headers(Authorization = paste("Basic", base64_enc(ticket$ticket)))) %>%
+  GET(add_headers(Authorization = paste("Basic", base64_enc(ticket)))) %>%
   content("text") %>%
   fromJSON(flatten = TRUE)
 
