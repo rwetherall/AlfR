@@ -8,8 +8,8 @@
 \description{
 The \code{alfr} package provides a way to connect to Alfresco and interact with the contents of the repository.
 \itemize{
-  \item \code{\link{alf_ticket}} - get Alfresco authentication ticket
-  \item \code{\link{alf_node}} -
+  \item \code{\link{alf_session}} - connection session to Alfresco repository
+  \item \code{\link{alf_node}} - Alfresco node
 }
 }
 \author{

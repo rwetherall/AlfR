@@ -6,14 +6,14 @@ require(magrittr)
 #' TODO
 #' @description
 #' TODO
-#' @param ticket TODO
+#' @param session TODO
 #' @param path TODO
 #' @return TODO
 #' @export
 ##
-alf_node <- function (ticket, path) {
+alf_node <- function (session, path) {
 
-  response <- alf_endpoints$node(ticket$uri) %>% alf_GET(ticket, list(relativePath=path))
+  response <- alf_endpoints$node(session$server) %>% alf_GET(session, list(relativePath=path))
 
   content <- function() {
     ## TODO

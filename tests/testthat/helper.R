@@ -1,3 +1,3 @@
 library(httptest)
 
-test_uri <- "http://localhost:8080"
+test_server <- "http://localhost:8080"

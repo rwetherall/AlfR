@@ -3,7 +3,7 @@
 export(alf_GET)
 export(alf_endpoints)
 export(alf_node)
-export(alf_ticket)
+export(alf_session)
 import(httr)
 import(jsonlite)
 import(magrittr)

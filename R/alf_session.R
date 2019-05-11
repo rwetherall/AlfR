@@ -1,22 +1,27 @@
 require(httr)
 require(magrittr)
 
+# endpoint prefix
+endpoint_prefix <- "/alfresco/api/-default-/public/"
+endpoint_ticket  <- "authentication/versions/1/tickets"
+
 ##
 #' @title
-#' Get Alfresco authentication ticket
+#' Get connection session to Alfresco repository
 #' @description
-#' Get Alfresco authentication ticket for specified respository with provided credentials.
-#' @param uri base uri to Alfresco repository
+#' Get connection session to Alfresco repository including:
+#' TODO list things available
+#' @param server Alfresco server URL
 #' @param username user name
 #' @param password password
-#' @return Alfresco ticket that can be used to authenticate subsequent calls to the repository
+#' @return connection session to Alfresco repository
 #' @export
 ##
-alf_ticket <- function (uri, username, password) {
+alf_session <- function (server, username, password) {
 
   # try to get the authentication ticket for the repository
   response <-
-    alf_endpoints$tickets(uri) %>%
+    paste(server, endpoint_prefix, endpoint_ticket, sep="") %>%
     POST(body=list(userId = username, password = password), encode = "json")
 
   # check for error
@@ -29,8 +34,13 @@ alf_ticket <- function (uri, username, password) {
     else stop(http_status(response)$message)
 
   # get the ticket from the response
-  else list(
-    uri = uri,
-    ticket = fromJSON(content(response, "text"), flatten = TRUE)$entry$id
-  )
+  else {
+
+
+
+    list(
+      server = server,
+      ticket = fromJSON(content(response, "text"), flatten = TRUE)$entry$id
+    )
+  }
 }

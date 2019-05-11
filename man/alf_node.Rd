@@ -4,10 +4,10 @@
 \alias{alf_node}
 \title{TODO}
 \usage{
-alf_node(ticket, path)
+alf_node(session, path)
 }
 \arguments{
-\item{ticket}{TODO}
+\item{session}{TODO}
 
 \item{path}{TODO}
 }
