@@ -15,12 +15,16 @@ alf_node <- function (session, path) {
 
   response <- alf_GET(session$node_endpoint(), session$ticket, list(relativePath=path))
 
-  content <- function() {
-    ## TODO
+  id <- response$entry$id
+
+  read_content <- function() {
+
+    alf_GET(session$node_content_endpoint(id), session$ticket, format="file")
   }
 
   list (
-    id = response$entry$id
+    id = id,
+    read_content = read_content
   )
 }
 

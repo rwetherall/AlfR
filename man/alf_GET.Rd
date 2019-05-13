@@ -4,7 +4,7 @@
 \alias{alf_GET}
 \title{TODO}
 \usage{
-alf_GET(endpoint, ticket, params = list())
+alf_GET(endpoint, ticket, params = list(), format = c("json", "file"))
 }
 \arguments{
 \item{endpoint}{TODO}
@@ -12,6 +12,8 @@ alf_GET(endpoint, ticket, params = list())
 \item{ticket}{TODO}
 
 \item{params}{TODO}
+
+\item{format}{TODO}
 }
 \value{
 TODO
