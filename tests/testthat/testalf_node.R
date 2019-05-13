@@ -13,6 +13,7 @@ mocked_test_that(
   node <- alf_session(test_server, admin_username, admin_password) %>% alf_node(test_doc_path)
 
   expect_equal(node$id, test_doc_id)
+  expect_equal(node$name, "testdoc.txt")
 
 })
 
