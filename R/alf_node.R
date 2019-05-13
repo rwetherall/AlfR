@@ -23,6 +23,10 @@ alf_node <- function (session, path) {
 
   file <- function() alf_GET(session$node_content_endpoint(id), session$ticket, format="file")
 
+  `file<-` <- function(file) {
+
+  }
+
   content <- list (
     mime_type = response$entry$content$mimeType,
     mime_type_name = response$entry$content$mimeTypeName,
