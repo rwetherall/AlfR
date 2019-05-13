@@ -3,20 +3,21 @@ context("alf-session")
 require(magrittr)
 require(httptest)
 
-with_mock_api({
-  test_that("Given a valid respository, And valid user credentials, When I request a session, Then I recieve a valid session", {
+mocked_test_that(
 
-    validSession <- function (session)
-      session %>% is.null() %>% not() &&
-      session$ticket %>% startsWith("TICKET_") &&
-      session$server == test_server
+  "Given a valid respository, And valid user credentials, When I request a session, Then I recieve a valid session", {
 
-    alf_session(test_server, "admin", "admin") %>% validSession() %>% expect_true()
-  })
+  validSession <- function (session)
+    session %>% is.null() %>% not() &&
+    session$ticket %>% startsWith("TICKET_") &&
+    session$server == test_server
+
+  alf_session(test_server, admin_username, admin_password) %>% validSession() %>% expect_true()
 })
 
-with_mock_api ({
-  test_that("Given a valid respository, And invalid user credentials, When I request a session, Then I recieve an error", {
-    expect_error(alf_session(test_server, "wrong", "wrong"), "Authentication")
-  })
+mocked_test_that(
+
+  "Given a valid respository, And invalid user credentials, When I request a session, Then I recieve an error", {
+
+  expect_error(alf_session(test_server, "wrong", "wrong"), "Authentication")
 })
