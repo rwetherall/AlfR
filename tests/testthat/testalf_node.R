@@ -18,11 +18,19 @@ mocked_test_that(
 
 mocked_test_that(
 
-  "Given a document, When I get the content, Then it is downloaded into a local file ", {
+  "Given a document, When I get plain content, Then it is downloaded into a local file ", {
 
   node <- alf_session(test_server, admin_username, admin_password) %>% alf_node(test_doc_path)
-  content <- node$read_content()
+  content <- node$content
 
   expect_false(is.null(content))
+
+  expect_equal(content$mime_type, "text/plain")
+  expect_equal(content$mime_type_name, "Plain Text")
+  expect_equal(content$size, 20)
+  expect_equal(content$encoding, "ISO-8859-1")
+
+  file <- content$file()
+  expect_false(is.null(file))
 
 })
