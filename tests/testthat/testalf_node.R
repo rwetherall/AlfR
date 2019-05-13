@@ -6,12 +6,23 @@ require(httptest)
 test_doc_path <- "Sites/test/documentLibrary/testFolder/testdoc.txt"
 test_doc_id <- "75ac9b37-853f-4b8c-b52f-3cf7ead28314"
 
-with_mock_api({
-  test_that("Given a document, When I get the document, Then I successfully retrieve it's information", {
+mocked_test_that(
 
-    test_doc <- alf_session(test_server, "admin", "admin") %>% alf_node(test_doc_path)
+  "Given a document, When I get the document, Then I successfully retrieve it's information", {
 
-    expect_equal(test_doc$id, test_doc_id)
+  node <- alf_session(test_server, admin_username, admin_password) %>% alf_node(test_doc_path)
 
-  })
+  expect_equal(node$id, test_doc_id)
+
+})
+
+mocked_test_that(
+
+  "Given a document, When I get the content, Then it is downloaded into a local file ", {
+
+  node <- alf_session(test_server, admin_username, admin_password) %>% alf_node(test_doc_path)
+  content <- node$read_content()
+
+  expect_false(is.null(content))
+
 })
