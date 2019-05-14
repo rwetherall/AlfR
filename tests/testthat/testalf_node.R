@@ -33,5 +33,5 @@ mocked_test_that(
 
   content_file <- content$as.file()
   expect_false(is.null(content_file))
-  expect_equal(readLines(content_file), "Test txt document.")
+  readLines(content_file) %>% startsWith("Test txt document.") %>% expect_true()
 })
