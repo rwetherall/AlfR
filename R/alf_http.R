@@ -45,8 +45,16 @@ alf_PUT <- function (endpoint, ticket, params=list(), format=c("json", "raw"), b
 
 ##
 #' @title Alfresco HTTP method
+#' @description Helper to make a http method call to the Alfresco REST API
+#' @param method HTTP method to call
+#' @param endpoint base endpoint URI
+#' @param ticket authentication ticket
+#' @param params optional list of parameters
+#' @param format return format from \code{json} (default), \code{raw}
+#' @param body request body
+#' @return result based on format provided
 ##
-alf_method <- function (method=c("GET", "POST"), endpoint, ticket, params=list(), format=c("json", "raw"), body=NULL) {
+alf_method <- function (method=c("GET", "POST", "PUT"), endpoint, ticket, params=list(), format=c("json", "raw"), body=NULL) {
 
   # check we have a valid method
   method <- match.arg(method)
@@ -63,12 +71,13 @@ alf_method <- function (method=c("GET", "POST"), endpoint, ticket, params=list()
         # add authentication
       add_headers(Authorization = paste("Basic", base64_enc(ticket)))))
 
-  # add body
+  # add body if provided
   if (!is.null(body)) method_call[[length(method_call)+1]] <- quote(content(body))
 
   # get response
   response <- eval(method_call)
 
+  # process response format
   switch (
     format,
     json = content(response, "text") %>% fromJSON(flatten = TRUE),

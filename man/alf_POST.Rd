@@ -4,7 +4,7 @@
 \alias{alf_POST}
 \title{Alfresco POST method}
 \usage{
-alf_POST(endpoint, ticket, params = list(), format = c("json", "file"),
+alf_POST(endpoint, ticket, params = list(), format = c("json", "raw"),
   body = NULL)
 }
 \arguments{
@@ -14,7 +14,7 @@ alf_POST(endpoint, ticket, params = list(), format = c("json", "file"),
 
 \item{params}{optional list of parameters}
 
-\item{format}{return format from \code{json} (default)}
+\item{format}{return format from \code{json} (default), \code{raw}}
 
 \item{body}{request body}
 }

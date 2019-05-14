@@ -4,9 +4,25 @@
 \alias{alf_method}
 \title{Alfresco HTTP method}
 \usage{
-alf_method(method = c("GET", "POST"), endpoint, ticket,
-  params = list(), format = c("json", "file"), body = NULL)
+alf_method(method = c("GET", "POST", "PUT"), endpoint, ticket,
+  params = list(), format = c("json", "raw"), body = NULL)
+}
+\arguments{
+\item{method}{HTTP method to call}
+
+\item{endpoint}{base endpoint URI}
+
+\item{ticket}{authentication ticket}
+
+\item{params}{optional list of parameters}
+
+\item{format}{return format from \code{json} (default), \code{raw}}
+
+\item{body}{request body}
+}
+\value{
+result based on format provided
 }
 \description{
-Alfresco HTTP method
+Helper to make a http method call to the Alfresco REST API
 }
