@@ -7,12 +7,12 @@ require(magrittr)
 #' @param endpoint base endpoint URI
 #' @param ticket authentication ticket
 #' @param params optional list of parameters
-#' @param format return format from \code{json} (default), \code{file}
+#' @param format return format from \code{json} (default), \code{raw}
 #' @param body request body
 #' @return result based on format provided
 #' @export
 ##
-alf_GET <- function (endpoint, ticket, params=list(), format=c("json", "file"), body=NULL)
+alf_GET <- function (endpoint, ticket, params=list(), format=c("json", "raw"), body=NULL)
   alf_method("GET", endpoint, ticket, params, format, body)
 
 ##
@@ -21,12 +21,12 @@ alf_GET <- function (endpoint, ticket, params=list(), format=c("json", "file"), 
 #' @param endpoint base endpoint URI
 #' @param ticket authentication ticket
 #' @param params optional list of parameters
-#' @param format return format from \code{json} (default)
+#' @param format return format from \code{json} (default), \code{raw}
 #' @param body request body
 #' @return result based on format provided
 #' @export
 ##
-alf_POST <- function (endpoint, ticket, params=list(), format=c("json", "file"), body=NULL)
+alf_POST <- function (endpoint, ticket, params=list(), format=c("json", "raw"), body=NULL)
   alf_method("POST", endpoint, ticket, params, format, body)
 
 ##
@@ -35,18 +35,18 @@ alf_POST <- function (endpoint, ticket, params=list(), format=c("json", "file"),
 #' @param endpoint base endpoint URI
 #' @param ticket authentication ticket
 #' @param params optional list of parameters
-#' @param format return format from \code{json} (default)
+#' @param format return format from \code{json} (default), \code{raw}
 #' @param body request body
 #' @return result based on format provided
 #' @export
 ##
-alf_PUT <- function (endpoint, ticket, params=list(), format=c("json", "file"), body=NULL)
+alf_PUT <- function (endpoint, ticket, params=list(), format=c("json", "raw"), body=NULL)
   alf_method("PUT", endpoint, ticket, params, format, body)
 
 ##
 #' @title Alfresco HTTP method
 ##
-alf_method <- function (method=c("GET", "POST"), endpoint, ticket, params=list(), format=c("json", "file"), body=NULL) {
+alf_method <- function (method=c("GET", "POST"), endpoint, ticket, params=list(), format=c("json", "raw"), body=NULL) {
 
   # check we have a valid method
   method <- match.arg(method)
@@ -54,24 +54,25 @@ alf_method <- function (method=c("GET", "POST"), endpoint, ticket, params=list()
   # check we have a valid format
   format <- match.arg(format)
 
-  # construct GET call
-  get_call <- bquote(
-    .(as.symbol(method))(
+  # construct method call
+  method_call <- bquote(.(as.symbol(method))(
+
       # resolve parameters
       add_params(endpoint, params),
-      # add authentication
+
+        # add authentication
       add_headers(Authorization = paste("Basic", base64_enc(ticket)))))
 
-  # return content as json
-  if (format == "json") eval(get_call) %>% content("text") %>% fromJSON(flatten = TRUE)
+  # add body
+  if (!is.null(body)) method_call[[length(method_call)+1]] <- quote(content(body))
 
-  # return content as a file
-  else if (format == "file") {
-    tmp <- tempfile()
-    get_call[[length(get_call)+1]] <- quote(write_disk(tmp))
-    eval(get_call)
-    tmp
-  }
+  # get response
+  response <- eval(method_call)
+
+  switch (
+    format,
+    json = content(response, "text") %>% fromJSON(flatten = TRUE),
+    raw =  content(response, "raw"))
 }
 
 ##

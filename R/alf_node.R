@@ -21,7 +21,13 @@ alf_node <- function (session, path) {
 
   # TODO determine whether this is a folder or not so the following can be excluded (or not)
 
-  file <- function() alf_GET(session$node_content_endpoint(id), session$ticket, format="file")
+  file <- function(destination_file = NULL) {
+    if (is.null(destination_file)) destination_file <- tempfile()
+    bfile <- base::file(destination_file, "wb")
+    alf_GET(session$node_content_endpoint(id), session$ticket, format="raw")  %>% writeBin(bfile)
+    close(bfile)
+    destination_file
+  }
 
   `file<-` <- function(file) {
 

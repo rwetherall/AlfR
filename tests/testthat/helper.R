@@ -1,11 +1,13 @@
 library(httptest)
 
+test_execution_mode <- "mock"
+
 test_server <- "http://localhost:8080"
 
 admin_username <- "admin"
 admin_password <- "admin"
 
-mocked_test_that <- function (desc, code) do_mocking(test_that(desc, code), "mock")
+mocked_test_that <- function (desc, code) do_mocking(test_that(desc, code), test_execution_mode)
 
 do_mocking <- function (expr, mode=c("mock", "live", "capture"))
   match.arg(mode) %>%
