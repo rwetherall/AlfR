@@ -31,7 +31,7 @@ mocked_test_that(
   expect_equal(content$size, 20)
   expect_equal(content$encoding, "ISO-8859-1")
 
-  content_file <- content$file()
+  content_file <- content$as.file()
   expect_false(is.null(content_file))
   expect_equal(readLines(content_file), "Test txt document.")
 })
