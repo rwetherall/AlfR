@@ -7,13 +7,13 @@ require(magrittr)
 #' @param endpoint base endpoint URI
 #' @param ticket authentication ticket
 #' @param params optional list of parameters
-#' @param format return format from \code{json} (default), \code{raw}
+#' @param as return as \code{json} (default), \code{raw}
 #' @param body request body
 #' @return result based on format provided
 #' @export
 ##
-alf_GET <- function (endpoint, ticket, params=list(), format=c("json", "raw"), body=NULL)
-  alf_method("GET", endpoint, ticket, params, format, body)
+alf_GET <- function (endpoint, ticket, params=list(), as=c("json", "raw"), body=NULL)
+  alf_method("GET", endpoint, ticket, params, as, body)
 
 ##
 #' @title Alfresco POST method
@@ -21,13 +21,13 @@ alf_GET <- function (endpoint, ticket, params=list(), format=c("json", "raw"), b
 #' @param endpoint base endpoint URI
 #' @param ticket authentication ticket
 #' @param params optional list of parameters
-#' @param format return format from \code{json} (default), \code{raw}
+#' @param as return as \code{json} (default), \code{raw}
 #' @param body request body
 #' @return result based on format provided
 #' @export
 ##
-alf_POST <- function (endpoint, ticket, params=list(), format=c("json", "raw"), body=NULL)
-  alf_method("POST", endpoint, ticket, params, format, body)
+alf_POST <- function (endpoint, ticket, params=list(), as=c("json", "raw"), body=NULL)
+  alf_method("POST", endpoint, ticket, params, as, body)
 
 ##
 #' @title Alfresco PUT method
@@ -35,13 +35,13 @@ alf_POST <- function (endpoint, ticket, params=list(), format=c("json", "raw"), 
 #' @param endpoint base endpoint URI
 #' @param ticket authentication ticket
 #' @param params optional list of parameters
-#' @param format return format from \code{json} (default), \code{raw}
+#' @param as return as \code{json} (default), \code{raw}
 #' @param body request body
 #' @return result based on format provided
 #' @export
 ##
-alf_PUT <- function (endpoint, ticket, params=list(), format=c("json", "raw"), body=NULL)
-  alf_method("PUT", endpoint, ticket, params, format, body)
+alf_PUT <- function (endpoint, ticket, params=list(), as=c("json", "raw"), body=NULL)
+  alf_method("PUT", endpoint, ticket, params, as, body)
 
 ##
 #' @title Alfresco HTTP method
@@ -50,17 +50,17 @@ alf_PUT <- function (endpoint, ticket, params=list(), format=c("json", "raw"), b
 #' @param endpoint base endpoint URI
 #' @param ticket authentication ticket
 #' @param params optional list of parameters
-#' @param format return format from \code{json} (default), \code{raw}
+#' @param as return as \code{json} (default), \code{raw}
 #' @param body request body
 #' @return result based on format provided
 ##
-alf_method <- function (method=c("GET", "POST", "PUT"), endpoint, ticket, params=list(), format=c("json", "raw"), body=NULL) {
+alf_method <- function (method=c("GET", "POST", "PUT"), endpoint, ticket, params=list(), as=c("json", "raw"), body=NULL) {
 
   # check we have a valid method
   method <- match.arg(method)
 
-  # check we have a valid format
-  format <- match.arg(format)
+  # check we have a valid as
+  as <- match.arg(as)
 
   # construct method call
   method_call <- bquote(.(as.symbol(method))(
@@ -68,18 +68,18 @@ alf_method <- function (method=c("GET", "POST", "PUT"), endpoint, ticket, params
       # resolve parameters
       add_params(endpoint, params),
 
-        # add authentication
-      add_headers(Authorization = paste("Basic", base64_enc(ticket)))))
+      # add authentication
+      add_headers(Authorization = paste("Basic", base64_enc(ticket))),
 
-  # add body if provided
-  if (!is.null(body)) method_call[[length(method_call)+1]] <- quote(content(body))
+      # add body
+      body=body))
 
   # get response
   response <- eval(method_call)
 
-  # process response format
+  # process response as
   switch (
-    format,
+    as,
     json = content(response, "text") %>% fromJSON(flatten = TRUE),
     raw =  content(response, "raw"))
 }

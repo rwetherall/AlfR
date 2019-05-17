@@ -5,12 +5,12 @@
             "id": "admin",
             "displayName": "Administrator"
         },
-        "modifiedAt": "2019-05-10T02:40:46.038+0000",
+        "modifiedAt": "2019-05-17T03:51:40.962+0000",
         "nodeType": "cm:content",
         "content": {
             "mimeType": "text/plain",
             "mimeTypeName": "Plain Text",
-            "sizeInBytes": 20,
+            "sizeInBytes": 41,
             "encoding": "ISO-8859-1"
         },
         "parentId": "72c1dc41-fee9-4896-83df-895a668d2f81",
@@ -20,17 +20,17 @@
             "cm:auditable",
             "cm:author"
         ],
-        "createdAt": "2019-05-10T02:40:46.038+0000",
+        "createdAt": "2019-05-17T03:51:20.402+0000",
         "isFolder": false,
         "modifiedByUser": {
             "id": "admin",
             "displayName": "Administrator"
         },
         "name": "testdoc.txt",
-        "id": "75ac9b37-853f-4b8c-b52f-3cf7ead28314",
+        "id": "b569f89f-e5a0-4ef4-8c4e-d1314bac67a4",
         "properties": {
-            "cm:versionLabel": "1.0",
-            "cm:versionType": "MAJOR"
+            "cm:versionLabel": "1.1",
+            "cm:versionType": "MINOR"
         }
     }
 }

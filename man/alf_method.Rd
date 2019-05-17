@@ -5,7 +5,7 @@
 \title{Alfresco HTTP method}
 \usage{
 alf_method(method = c("GET", "POST", "PUT"), endpoint, ticket,
-  params = list(), format = c("json", "raw"), body = NULL)
+  params = list(), as = c("json", "raw"), body = NULL)
 }
 \arguments{
 \item{method}{HTTP method to call}
@@ -16,7 +16,7 @@ alf_method(method = c("GET", "POST", "PUT"), endpoint, ticket,
 
 \item{params}{optional list of parameters}
 
-\item{format}{return format from \code{json} (default), \code{raw}}
+\item{as}{return as \code{json} (default), \code{raw}}
 
 \item{body}{request body}
 }

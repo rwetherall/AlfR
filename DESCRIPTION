@@ -18,8 +18,7 @@ Suggests:
   devtools,
   httptest,
   roxygen2,
-  testthat
-Digest:
-  alf_endpoints.R,
-  alf_ticket.R,
-  alf_node.R
+  testthat,
+  knitr,
+  rmarkdown
+VignetteBuilder: knitr
