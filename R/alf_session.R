@@ -38,16 +38,18 @@ alf_session <- function (server, username, password) {
   # get the ticket from the response
   else {
 
-    # define endpoints for session
-    node_endpoint <- function(node_id = "-root-") base_endpoint(server, "alfresco/versions/1/nodes/") %>% paste(node_id, sep="")
+    # node end points
+    node_endpoint <- function(node_id) base_endpoint(server, "alfresco/versions/1/nodes/") %>% paste(node_id, sep="")
     node_content_endpoint <- function(node_id) node_endpoint(node_id) %>% paste("/content", sep="")
+    node_children_endpoint <- function(node_id) node_endpoint(node_id) %>% paste("/children", sep="")
 
     # session details
     list(
       server = server,
       ticket = fromJSON(content(response, "text"), flatten = TRUE)$entry$id,
       node_endpoint = node_endpoint,
-      node_content_endpoint = node_content_endpoint
+      node_content_endpoint = node_content_endpoint,
+      node_children_endpoint = node_children_endpoint
     )
   }
 }

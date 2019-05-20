@@ -7,11 +7,12 @@ require(magrittr)
 #' @description
 #' TODO
 #' @param session TODO
-#' @param path TODO
+#' @param node_id TODO
+#' @param relative_path TODO
 #' @return TODO
 #' @export
 ##
-alf_node <- function (session, path) {
+alf_node <- function (session, node_id = "-root-", relative_path = NULL) {
 
   ##
   # Helper to represent response as node information
@@ -81,8 +82,30 @@ alf_node <- function (session, path) {
 
   # TODO deal with invalid path
 
+  # build parameter list
+  params <- list()
+  if (!is.null(relative_path)) params$relativePath = relative_path
+
   # GET node details found at the path provided
-  alf_GET(session$node_endpoint(), session$ticket, list(relativePath=path)) %>% as.node()
+  alf_GET(session$node_endpoint(node_id), session$ticket, params) %>% as.node()
+
+}
+
+##
+#' @title
+#' TODO
+#' @description
+#' TODO
+#' @param session TODO
+#' @param node_id TODO
+#' @param node_details TODO
+#' @return TODO
+#' @export
+##
+alf_node.new <- function(session, node_id, node_details) {
+
+  alf_POST(session$node_children_endpoint(node_id), session$ticket, body = toJSON(node_details, auto_unbox = TRUE))
+
 
 }
 

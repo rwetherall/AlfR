@@ -16,7 +16,7 @@ mocked_test_that(
    When I try to retieve the documeny by path,
    Then I am successful and can access information about that node", {
 
-  node <- alf_session(test_server, admin_username, admin_password) %>% alf_node(test_doc_path)
+  node <- alf_session(test_server, admin_username, admin_password) %>% alf_node(relative_path = test_doc_path)
 
   expect_false(is.null(node$id))
   expect_equal(node$name, "testdoc.txt")
@@ -29,7 +29,7 @@ mocked_test_that(
    When ask for the content as a file,
    Then the file is created and I can read its content", {
 
-  node <- alf_session(test_server, admin_username, admin_password) %>% alf_node(test_doc_path)
+  node <- alf_session(test_server, admin_username, admin_password) %>% alf_node(relative_path = test_doc_path)
   content <- node$content
 
   expect_false(is.null(content))
@@ -58,7 +58,7 @@ mocked_test_that(
    Then the content is updated and the node node details are available", {
 
   node <- alf_session(test_server, admin_username, admin_password) %>%
-          alf_node(test_doc_path)
+          alf_node(relative_path = test_doc_path)
   updated_node <- node$content$update("resources/testuploaddoc.txt")
 
   expect_false(is.null(updated_node))
