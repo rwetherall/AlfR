@@ -44,15 +44,15 @@ alf_PUT <- function (endpoint, ticket, params=list(), as=c("json", "raw"), body=
   alf_method("PUT", endpoint, ticket, params, as, body)
 
 ##
-#' @title Alfresco HTTP method
-#' @description Helper to make a http method call to the Alfresco REST API
-#' @param method HTTP method to call
-#' @param endpoint base endpoint URI
-#' @param ticket authentication ticket
-#' @param params optional list of parameters
-#' @param as return as \code{json} (default), \code{raw}
-#' @param body request body
-#' @return result based on format provided
+# @title Alfresco HTTP method
+# @description Helper to make a http method call to the Alfresco REST API
+# @param method HTTP method to call
+# @param endpoint base endpoint URI
+# @param ticket authentication ticket
+# @param params optional list of parameters
+# @param as return as \code{json} (default), \code{raw}
+# @param body request body
+# @return result based on format provided
 ##
 alf_method <- function (method=c("GET", "POST", "PUT"), endpoint, ticket, params=list(), as=c("json", "raw"), body=NULL) {
 
@@ -77,6 +77,15 @@ alf_method <- function (method=c("GET", "POST", "PUT"), endpoint, ticket, params
   # get response
   response <- eval(method_call)
 
+  # check for error
+  if (http_error(response))
+    if(response$status_code == 401)
+      stop("Authentication details are not longer valid or have timed out.  Please renew your session. (401)")
+    else if (response$status_code == 409)
+      stop("A duplicate node was found.  Please ensure name is unique. (409)")
+    else
+      stop(http_status(response)$message)
+
   # process response as
   switch (
     as,
@@ -85,13 +94,8 @@ alf_method <- function (method=c("GET", "POST", "PUT"), endpoint, ticket, params
 }
 
 ##
-#' @title Add parameters
-#' @description Add parameters to endpoint
-#' @param endpoint endpoint URI to add parameters to
-#' @param params list of name/value parameters
-#' @param sep separator used to delimit the next parameter to the endpoint
-#' @return endpoint with added parameters
-#
+# Helper method to add parameters onto a URL endpoint
+##
 add_params <- function (endpoint, params, sep="?") {
 
   if (length(params) > 0)
