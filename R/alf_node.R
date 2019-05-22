@@ -2,17 +2,19 @@ require(httr)
 require(magrittr)
 
 ##
-#' @title
-#' TODO
+#' @title Get Alfresco node
 #' @description
-#' TODO
-#' @param session TODO
-#' @param node_id TODO
-#' @param relative_path TODO
-#' @return TODO
+#' Gets the details of an Alfresco repository node matching \code{node_id} or, if provided, the node at \code{relative_path}
+#' relative to \code{node_id}.
+#' @param session valid Alfresco repository session
+#' @param node_id node id, defaults to \code{-root-}
+#' @param relative_path relative path from \code{node_id} to required node, defaults to \code{NULL}
+#' @return node details
 #' @export
 ##
 alf_node <- function (session, node_id = "-root-", relative_path = NULL) {
+
+  # TODO deal with invalid session
 
   # TODO deal with invalid path
 
@@ -21,23 +23,27 @@ alf_node <- function (session, node_id = "-root-", relative_path = NULL) {
   if (!is.null(relative_path)) params$relativePath = relative_path
 
   # GET node details found at the path provided
-  alf_GET(session$node_endpoint(node_id), session$ticket, params) %>% as.node(session)
+  alf_GET(session$node_endpoint(node_id), session$ticket, params) %>%
+    as.node(session)
 }
 
 ##
-#' @title
-#' TODO
+#' @title Create a new Alfresco node
 #' @description
-#' TODO
-#' @param session TODO
-#' @param node_id TODO
-#' @param node_details TODO
-#' @return TODO
+#' Creates a new Alfresco repository node as a child of \code{node_id}.
+#' @param session valid Alfresco repository session
+#' @param node_id node id
+#' @param node_details details of new node
+#' @return node details
 #' @export
 ##
 alf_node.new <- function(session, node_id, node_details) {
 
-  alf_POST(session$node_children_endpoint(node_id), session$ticket, body = toJSON(node_details, auto_unbox = TRUE)) %>% as.node(session)
+  # TODO deal with invaild session
+
+  # POST node update
+  alf_POST(session$node_children_endpoint(node_id), session$ticket, body = toJSON(node_details, auto_unbox = TRUE)) %>%
+    as.node(session)
 
 }
 

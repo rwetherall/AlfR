@@ -11,8 +11,8 @@ tickets_endpoint <- function(server) base_endpoint(server, "authentication/versi
 #' @title
 #' Get connection session to Alfresco repository
 #' @description
-#' Get connection session to Alfresco repository including:
-#' TODO list things available
+#' Validates authentication details against Alfresco repository, returning ticket and endpoints if
+#' successful.
 #' @param server Alfresco server URL
 #' @param username user name
 #' @param password password
