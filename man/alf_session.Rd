@@ -17,6 +17,6 @@ alf_session(server, username, password)
 connection session to Alfresco repository
 }
 \description{
-Get connection session to Alfresco repository including:
-TODO list things available
+Validates authentication details against Alfresco repository, returning ticket and endpoints if
+successful.
 }

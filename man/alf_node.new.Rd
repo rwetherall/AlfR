@@ -2,20 +2,20 @@
 % Please edit documentation in R/alf_node.R
 \name{alf_node.new}
 \alias{alf_node.new}
-\title{TODO}
+\title{Create a new Alfresco node}
 \usage{
 alf_node.new(session, node_id, node_details)
 }
 \arguments{
-\item{session}{TODO}
+\item{session}{valid Alfresco repository session}
 
-\item{node_id}{TODO}
+\item{node_id}{node id}
 
-\item{node_details}{TODO}
+\item{node_details}{details of new node}
 }
 \value{
-TODO
+node details
 }
 \description{
-TODO
+Creates a new Alfresco repository node as a child of \code{node_id}.
 }

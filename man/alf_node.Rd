@@ -2,20 +2,21 @@
 % Please edit documentation in R/alf_node.R
 \name{alf_node}
 \alias{alf_node}
-\title{TODO}
+\title{Get Alfresco node}
 \usage{
 alf_node(session, node_id = "-root-", relative_path = NULL)
 }
 \arguments{
-\item{session}{TODO}
+\item{session}{valid Alfresco repository session}
 
-\item{node_id}{TODO}
+\item{node_id}{node id, defaults to \code{-root-}}
 
-\item{relative_path}{TODO}
+\item{relative_path}{relative path from \code{node_id} to required node, defaults to \code{NULL}}
 }
 \value{
-TODO
+node details
 }
 \description{
-TODO
+Gets the details of an Alfresco repository node matching \code{node_id} or, if provided, the node at \code{relative_path}
+relative to \code{node_id}.
 }
