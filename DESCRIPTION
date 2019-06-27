@@ -15,10 +15,11 @@ Imports:
   jsonlite,
   magrittr
 Suggests: 
-  devtools,
-  httptest,
-  roxygen2,
-  testthat,
-  knitr,
-  rmarkdown
+    devtools,
+    httptest,
+    roxygen2,
+    testthat,
+    knitr,
+    rmarkdown,
+    covr
 VignetteBuilder: knitr
