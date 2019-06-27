@@ -53,3 +53,11 @@ alf_session <- function (server, username, password) {
     )
   }
 }
+
+alf_session.is_valid <- function (session) {
+
+}
+
+alf_session.invalidate <- function (session) {
+
+}
