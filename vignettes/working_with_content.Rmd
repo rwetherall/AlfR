@@ -1,0 +1,63 @@
+---
+title: "Alfr - Working with Content"
+author: "Roy Wetherall"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{working_with_content}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+
+Alfr allows you to work with content directly within the Alfresco repository.
+
+## Setup
+
+First include the alfr library.
+
+```{r setup}
+library(alfr)
+```
+
+In order to communicate with the Alfresco repository you must first establish a session connection.  The location of the respository is required to do this, along with valid user credentials.
+
+```
+session <- alf_session("http://localhost:8080", "admin", "admin")
+```
+
+## Uploading Content
+
+All content is stored on a repository node so before we can upload binary content we must first create a node to store it within.  In this example we are creating a node called `myFile2.txt` in the folder `test`.  `-root-` is used to reference the root repository node. 
+
+```
+my_file <- alf_node.new(session, "-root-", list(name="myFile2.txt", nodeType="cm:content", relativePath="test"))
+```
+Now content can be uploaded into the nodes content property where it will be stored in the Alfresco repository.
+
+```
+my_file <- my_file$content$update("resources/testuploaddoc.txt")
+```
+
+## Reading Content
+
+Get a reference to the node you want to read content from.
+
+```
+my_file <- alf_node.new(session, "-root-", relativePath="test/myFile2.txt")
+```
+
+Content stored in a repository node can then be read to the client by opening a connection and reading the contents.
+
+```
+con <- my_file$content$as.file("resources/download.txt") %>% file("r")
+readLines(con)
+close(con)
+```
