@@ -1,6 +1,6 @@
 # alfr
 
-[![Travis build status](https://travis-ci.org/rwetherall/alfr.svg?branch=master)](https://travis-ci.org/rwetherall/alfr)
+[![Travis build status](https://travis-ci.com/rwetherall/alfr.svg?branch=master)](https://travis-ci.com/rwetherall/alfr)
 
 ## Overview
 
