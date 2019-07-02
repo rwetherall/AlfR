@@ -5,7 +5,7 @@
 
 ## Overview
 
-'alfr' allows you to connect to an 'Alfresco' content management repository and interact with its contents using simple and intuative functions.
+Allows you to connect to an 'Alfresco' content management repository and interact with its contents using simple and intuitive functions.
 
 ## Installation
 
