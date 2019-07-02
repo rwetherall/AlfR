@@ -5,7 +5,7 @@
 
 ## Overview
 
-Alfr allows developers to use the Alfresco repository to store and retrieve rich content via a simple to use API.
+'alfr' allows you to connect to an 'Alfresco' content management repository and interact with its contents using simple and intuative functions.
 
 ## Installation
 
