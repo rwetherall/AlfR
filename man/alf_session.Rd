@@ -2,7 +2,7 @@
 % Please edit documentation in R/alf_session.R
 \name{alf_session}
 \alias{alf_session}
-\title{Get connection session to Alfresco repository}
+\title{Get connection session to Alfresco content repository}
 \usage{
 alf_session(server, username, password)
 }
@@ -14,9 +14,21 @@ alf_session(server, username, password)
 \item{password}{password}
 }
 \value{
-connection session to Alfresco repository
+Connection session to Alfresco repository
 }
 \description{
-Validates authentication details against Alfresco repository, returning ticket and endpoints if
+Validates authentication details with Alfresco content repository, returning ticket, server details and endpoints if
 successful.
+}
+\examples{
+\donttest{
+# establish a connection to the alfresco content repository
+mySession <- alf_session("alfresco.my-org.com", "admin", "admin")
+
+# view connection server host
+print(mySession$server)
+
+# view connection ticket
+print(mySession$ticket)
+}
 }

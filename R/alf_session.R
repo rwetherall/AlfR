@@ -9,14 +9,25 @@ tickets_endpoint <- function(server) base_endpoint(server, "authentication/versi
 
 ##
 #' @title
-#' Get connection session to Alfresco repository
+#' Get connection session to Alfresco content repository
 #' @description
-#' Validates authentication details against Alfresco repository, returning ticket and endpoints if
+#' Validates authentication details with Alfresco content repository, returning ticket, server details and endpoints if
 #' successful.
 #' @param server Alfresco server URL
 #' @param username user name
 #' @param password password
-#' @return connection session to Alfresco repository
+#' @return Connection session to Alfresco repository
+#' @examples
+#' \donttest{
+#' # establish a connection to the alfresco content repository
+#' mySession <- alf_session("alfresco.my-org.com", "admin", "admin")
+#'
+#' # view connection server host
+#' print(mySession$server)
+#'
+#' # view connection ticket
+#' print(mySession$ticket)
+#' }
 #' @export
 ##
 alf_session <- function (server, username, password) {
@@ -54,10 +65,12 @@ alf_session <- function (server, username, password) {
   }
 }
 
-alf_session.is_valid <- function (session) {
+# TODO
+# alf_session.is_valid <- function (session) {
+#
+# }
 
-}
-
-alf_session.invalidate <- function (session) {
-
-}
+#TODO
+# alf_session.invalidate <- function (session) {
+#
+# }
