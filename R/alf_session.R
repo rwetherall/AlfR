@@ -20,13 +20,15 @@ tickets_endpoint <- function(server) base_endpoint(server, "authentication/versi
 #' @examples
 #' \donttest{
 #' # establish a connection to the alfresco content repository
-#' mySession <- alf_session("alfresco.my-org.com", "admin", "admin")
+#' my_session <- alf_session("alfresco.my-org.com", "admin", "admin")
 #'
-#' # view connection server host
-#' print(mySession$server)
+#' # output the server URL
+#' print(my_session$server)
+#' #[1] "alfresco.my-org.com"
 #'
-#' # view connection ticket
-#' print(mySession$ticket)
+#' # output the connection ticket
+#' print(my_session$ticket)
+#' #[1] "xxx-xxx-xxx-xxx"
 #' }
 #' @export
 ##

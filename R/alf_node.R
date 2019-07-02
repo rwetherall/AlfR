@@ -9,7 +9,37 @@ require(magrittr)
 #' @param session valid Alfresco repository session
 #' @param node_id node id, defaults to \code{-root-}
 #' @param relative_path relative path from \code{node_id} to required node, defaults to \code{NULL}
-#' @return node details
+#' @return Node details
+#' @examples
+#' \donttest{
+#' # establish a connection to the alfresco content repository
+#' my_session <- alf_session("alfresco.my-org.com", "admin", "admin")
+#'
+#' # get details of document node
+#' my_document <- alf_node(my_session, relative_path = "testFolder/testdoc.txt")
+#'
+#' # output the name of the document
+#' print(my_document$name)
+#' #[1] "testdoc.txt"
+#'
+#' # output the details of documents content
+#' print(my_document$content$mime_type)
+#' #[1] "text/plain"
+#' print(my_document$content$mime_type_name)
+#' #[1] "Plain Text"
+#' print(my_document$content$size)
+#' #[1] 19
+#' print(my_document$content$encoding)
+#' #[1] "ISO-8859-1"
+#'
+#' # read document content
+#' my_content_file <- file(my_document$content$as.file(), "r")
+#' my_content <- readLines(my_content_file)
+#' close(my_content_file)
+#'
+#' # upload new content
+#' my_document <- my_document$content$update("resources/testuploaddoc.txt")
+#' }
 #' @export
 ##
 alf_node <- function (session, node_id = "-root-", relative_path = NULL) {
