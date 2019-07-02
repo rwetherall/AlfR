@@ -4,8 +4,8 @@ Title: Connectivity to 'Alfresco' Content Management Repositories
 Version: 1.1.0
 Author: Roy Wetherall <rwetherall@gmail.com>
 Maintainer: Roy Wetherall <rwetherall@gmail.com>
-Description: 'alfr' allows you to connect to an 'Alfresco' content management repository and interact
-  with its contents using simple and intuative functions.  You will be able to establish a connection session to the 'Alfresco' repository,
+Description: Allows you to connect to an 'Alfresco' content management repository and interact
+  with its contents using simple and intuitive functions.  You will be able to establish a connection session to the 'Alfresco' repository,
   read and upload content and manage folder hierarchies.  For more details on the 'Alfresco' content management repository
   see <https://www.alfresco.com/ecm-software/document-management>.
 Depends: R (>= 3.5.0)
