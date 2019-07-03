@@ -9,7 +9,7 @@ Allows you to connect to an 'Alfresco' content management repository and interac
 
 ## Installation
 
-You can install the development version from github with:
+Install the development version from github with:
 
 ```r
 # install.packages("remotes")
