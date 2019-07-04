@@ -10,7 +10,7 @@ Description: Allows you to connect to an 'Alfresco' content management repositor
   see <https://www.alfresco.com/ecm-software/document-management>.
 Depends: R (>= 3.5.0)
 License: GPL-3 | file LICENSE
-URL: https://github.com/rwetherall/alfr
+URL: https://github.com/rwetherall/alfr, https://rwetherall.github.io/alfr/
 BugReports: https://github.com/rwetherall/alfr/issues
 Encoding: UTF-8
 LazyData: true
