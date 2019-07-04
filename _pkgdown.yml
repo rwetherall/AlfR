@@ -1,2 +1,4 @@
 destination: docs
 url: https://rwetherall.github.io/alfr/
+development:
+  mode: auto
