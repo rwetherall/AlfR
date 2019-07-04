@@ -21,16 +21,12 @@ Validates authentication details with Alfresco content repository, returning tic
 successful.
 }
 \examples{
-\donttest{
 # establish a connection to the alfresco content repository
-my_session <- alf_session("alfresco.my-org.com", "admin", "admin")
+my_session <- alf_session("http://localhost:8080", "admin", "admin")
 
 # output the server URL
 print(my_session$server)
-#[1] "alfresco.my-org.com"
 
 # output the connection ticket
 print(my_session$ticket)
-#[1] "xxx-xxx-xxx-xxx"
-}
 }
