@@ -172,7 +172,8 @@ relative to <code>node_id</code>.</p>
     ))
 
   <span class='co'># upload content</span>
-  <span class='no'>my_new_document</span>$<span class='no'>content</span>$<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/update'>update</a></span>(<span class='st'>"R/examples/sample_content/sample.txt"</span>)
+  <span class='no'>my_new_document</span>$<span class='no'>content</span>$<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/update'>update</a></span>(
+    <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/system.file'>system.file</a></span>(<span class='st'>"extdata"</span>, <span class='st'>"sample.txt"</span>, <span class='kw'>package</span><span class='kw'>=</span><span class='st'>"alfr"</span>))
 
   <span class='co'># get details of document node</span>
   <span class='no'>my_document</span> <span class='kw'>&lt;-</span> <span class='fu'>alf_node</span>(<span class='no'>my_session</span>, <span class='kw'>relative_path</span> <span class='kw'>=</span> <span class='no'>relative_path</span>)
@@ -193,7 +194,8 @@ relative to <code>node_id</code>.</p>
   <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>my_content</span>)
 
   <span class='co'># upload new content</span>
-  <span class='no'>my_updated_document</span> <span class='kw'>&lt;-</span> <span class='no'>my_document</span>$<span class='no'>content</span>$<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/update'>update</a></span>(<span class='st'>"R/examples/sample_content/modified_sample.txt"</span>)
+  <span class='no'>my_updated_document</span> <span class='kw'>&lt;-</span> <span class='no'>my_document</span>$<span class='no'>content</span>$<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/update'>update</a></span>(
+    <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/system.file'>system.file</a></span>(<span class='st'>"extdata"</span>, <span class='st'>"modified_sample.txt"</span>, <span class='kw'>package</span><span class='kw'>=</span><span class='st'>"alfr"</span>))
 
   <span class='co'># print updated content size</span>
   <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>my_updated_document</span>$<span class='no'>content</span>$<span class='no'>size</span>)

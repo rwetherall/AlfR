@@ -18,7 +18,8 @@ if (!is.null(my_session)) {
     ))
 
   # upload content
-  my_new_document$content$update("R/examples/sample_content/sample.txt")
+  my_new_document$content$update(
+    system.file("extdata", "sample.txt", package="alfr"))
 
   # get details of document node
   my_document <- alf_node(my_session, relative_path = relative_path)
@@ -39,7 +40,8 @@ if (!is.null(my_session)) {
   print(my_content)
 
   # upload new content
-  my_updated_document <- my_document$content$update("R/examples/sample_content/modified_sample.txt")
+  my_updated_document <- my_document$content$update(
+    system.file("extdata", "modified_sample.txt", package="alfr"))
 
   # print updated content size
   print(my_updated_document$content$size)

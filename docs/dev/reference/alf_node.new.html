@@ -170,7 +170,8 @@
     ))
 
   <span class='co'># upload content</span>
-  <span class='no'>my_new_document</span>$<span class='no'>content</span>$<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/update'>update</a></span>(<span class='st'>"R/examples/sample_content/sample.txt"</span>)
+  <span class='no'>my_new_document</span>$<span class='no'>content</span>$<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/update'>update</a></span>(
+    <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/system.file'>system.file</a></span>(<span class='st'>"extdata"</span>, <span class='st'>"sample.txt"</span>, <span class='kw'>package</span><span class='kw'>=</span><span class='st'>"alfr"</span>))
 
   <span class='co'># get details of document node</span>
   <span class='no'>my_document</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='alf_node.html'>alf_node</a></span>(<span class='no'>my_session</span>, <span class='kw'>relative_path</span> <span class='kw'>=</span> <span class='no'>relative_path</span>)
@@ -191,11 +192,12 @@
   <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>my_content</span>)
 
   <span class='co'># upload new content</span>
-  <span class='no'>my_updated_document</span> <span class='kw'>&lt;-</span> <span class='no'>my_document</span>$<span class='no'>content</span>$<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/update'>update</a></span>(<span class='st'>"R/examples/sample_content/modified_sample.txt"</span>)
+  <span class='no'>my_updated_document</span> <span class='kw'>&lt;-</span> <span class='no'>my_document</span>$<span class='no'>content</span>$<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/update'>update</a></span>(
+    <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/system.file'>system.file</a></span>(<span class='st'>"extdata"</span>, <span class='st'>"modified_sample.txt"</span>, <span class='kw'>package</span><span class='kw'>=</span><span class='st'>"alfr"</span>))
 
   <span class='co'># print updated content size</span>
   <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>my_updated_document</span>$<span class='no'>content</span>$<span class='no'>size</span>)
-}</div><div class='output co'>#&gt; <span class='error'>Error in my_new_document$content$update("R/examples/sample_content/sample.txt"): Can not upload content from R/examples/sample_content/sample.txt as it does not exist.</span></div></pre>
+}</div><div class='output co'>#&gt; <span class='error'>Error in alf_method("POST", endpoint, ticket, params, as, body): A duplicate node was found.  Please ensure name is unique. (409)</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
