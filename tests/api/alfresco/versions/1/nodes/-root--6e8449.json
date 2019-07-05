@@ -1,0 +1,23 @@
+{
+    "entry": {
+        "aspectNames": [
+            "cm:auditable"
+        ],
+        "createdAt": "2019-07-05T06:47:30.438+0000",
+        "isFolder": true,
+        "isFile": false,
+        "createdByUser": {
+            "id": "admin",
+            "displayName": "Administrator"
+        },
+        "modifiedAt": "2019-07-05T06:47:31.480+0000",
+        "modifiedByUser": {
+            "id": "admin",
+            "displayName": "Administrator"
+        },
+        "name": "test-alf-node",
+        "id": "88c6e9e4-f936-41bc-9bf9-b77a5b35c75a",
+        "nodeType": "cm:folder",
+        "parentId": "766db199-b973-43d5-8048-25d78b388e14"
+    }
+}
