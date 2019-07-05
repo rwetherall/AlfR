@@ -21,48 +21,50 @@ Gets the details of an Alfresco repository node matching \code{node_id} or, if p
 relative to \code{node_id}.
 }
 \examples{
-\donttest{
-# establish a connection to the alfresco content repository
-my_session <- alf_session("http://localhost:8080", "admin", "admin")
+# try to establish a connection to the alfresco content repository
+my_session <- tryCatch(
+                alf_session("http://localhost:8080", "admin", "admin"),
+                error = function(e) NULL)
 
-# document name
-my_document_name <- paste(round(proc.time()[[3]]), ".txt", sep="")
-relative_path <- paste("testFolder/", my_document_name, sep="")
+if (!is.null(my_session)) {
 
-# create document
-my_new_document <- alf_node.new(my_session, node_id="-root-",
-  list(
-    name = my_document_name,
-    nodeType = "cm:content",
-    relativePath = "testFolder"
-  ))
+  # generate unique document name
+  my_document_name <- paste(round(proc.time()[[3]]), ".txt", sep="")
+  relative_path <- paste("test/", my_document_name, sep="")
 
-# upload content
-my_new_document$content$update("R/examples/sample_content/sample.txt")
+  # create document
+  my_new_document <- alf_node.new(my_session, node_id="-root-",
+    list(
+      name = my_document_name,
+      nodeType = "cm:content",
+      relativePath = "test"
+    ))
 
-# get details of document node
-my_document <- alf_node(my_session, relative_path = relative_path)
+  # upload content
+  my_new_document$content$update("R/examples/sample_content/sample.txt")
 
-# output the name of the document
-print(my_document$name)
+  # get details of document node
+  my_document <- alf_node(my_session, relative_path = relative_path)
 
-# output the details of documents content
-print(my_document$content$mime_type)
-print(my_document$content$mime_type_name)
-print(my_document$content$size)
-print(my_document$content$encoding)
+  # output the name of the document
+  print(my_document$name)
 
-# read document content
-my_content_file <- file(my_document$content$as.file(), "r")
-my_content <- readLines(my_content_file)
-close(my_content_file)
-print(my_content)
+  # output the details of documents content
+  print(my_document$content$mime_type)
+  print(my_document$content$mime_type_name)
+  print(my_document$content$size)
+  print(my_document$content$encoding)
 
-# upload new content
-my_updated_document <- my_document$content$update("R/examples/sample_content/modified_sample.txt")
+  # read document content
+  my_content_file <- file(my_document$content$as.file(), "r")
+  my_content <- readLines(my_content_file)
+  close(my_content_file)
+  print(my_content)
 
-# print updated content size
-print(my_updated_document$content$size)
+  # upload new content
+  my_updated_document <- my_document$content$update("R/examples/sample_content/modified_sample.txt")
 
+  # print updated content size
+  print(my_updated_document$content$size)
 }
 }

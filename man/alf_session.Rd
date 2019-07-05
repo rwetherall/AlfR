@@ -21,16 +21,17 @@ Validates authentication details with Alfresco content repository, returning tic
 successful.
 }
 \examples{
-\donttest{
+# try to establish a connection to the alfresco content repository
+my_session <- tryCatch(
+                alf_session("http://localhost:8080", "admin", "admin"),
+                error = function(e) NULL)
 
-# establish a connection to the alfresco content repository
-my_session <- alf_session("http://localhost:8080", "admin", "admin")
+if (!is.null(my_session)) {
 
-# output the server URL
-print(my_session$server)
+  # output the server URL
+  print(my_session$server)
 
-# output the connection ticket
-print(my_session$ticket)
-
+  # output the connection ticket
+  print(my_session$ticket)
 }
 }

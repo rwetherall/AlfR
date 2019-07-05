@@ -152,15 +152,20 @@ successful.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='co'># establish a connection to the alfresco content repository</span>
-<span class='no'>my_session</span> <span class='kw'>&lt;-</span> <span class='fu'>alf_session</span>(<span class='st'>"http://localhost:8080"</span>, <span class='st'>"admin"</span>, <span class='st'>"admin"</span>)
+    <pre class="examples"><div class='input'><span class='co'># try to establish a connection to the alfresco content repository</span>
+<span class='no'>my_session</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/conditions'>tryCatch</a></span>(
+                <span class='fu'>alf_session</span>(<span class='st'>"http://localhost:8080"</span>, <span class='st'>"admin"</span>, <span class='st'>"admin"</span>),
+                <span class='kw'>error</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>e</span>) <span class='kw'>NULL</span>)
 
-<span class='co'># output the server URL</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>my_session</span>$<span class='no'>server</span>)</div><div class='output co'>#&gt; [1] "http://localhost:8080"</div><div class='input'>
-<span class='co'># output the connection ticket</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>my_session</span>$<span class='no'>ticket</span>)</div><div class='output co'>#&gt; [1] "TICKET_df91a3cea6fe3a4acfaa3ab85fda4a34cf21c962"</div><div class='input'>
-</div></pre>
+<span class='kw'>if</span> (!<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/NULL'>is.null</a></span>(<span class='no'>my_session</span>)) {
+
+  <span class='co'># output the server URL</span>
+  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>my_session</span>$<span class='no'>server</span>)
+
+  <span class='co'># output the connection ticket</span>
+  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>my_session</span>$<span class='no'>ticket</span>)
+}</div><div class='output co'>#&gt; [1] "http://localhost:8080"
+#&gt; [1] "TICKET_df91a3cea6fe3a4acfaa3ab85fda4a34cf21c962"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
