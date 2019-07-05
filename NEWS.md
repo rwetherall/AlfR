@@ -1,7 +1,7 @@
 ## alfr 1.2.0
 
 * Use pkgdown to generate package site documentation
-
+* Improved examples
 
 ## alfr 1.1.0
 
