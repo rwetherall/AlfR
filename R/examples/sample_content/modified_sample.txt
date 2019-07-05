@@ -1,0 +1,3 @@
+this is a sample txt file
+it has been modified
+it has three lines
