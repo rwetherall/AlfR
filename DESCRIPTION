@@ -27,6 +27,8 @@ Suggests:
     knitr,
     rmarkdown,
     covr,
-    remotes
+    remotes,
+    spelling
 VignetteBuilder: knitr
 SystemRequirements: Alfresco Content Repository (Community or Enterprise)
+Language: en-US
