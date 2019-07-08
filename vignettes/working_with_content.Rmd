@@ -61,3 +61,11 @@ con <- my_file$content$as.file("resources/download.txt") %>% file("r")
 readLines(con)
 close(con)
 ```
+
+## Deleting Content
+
+With a reference to the node that you want to delete from the repository.
+
+```
+alf_node.delete(session, node$id)
+```
