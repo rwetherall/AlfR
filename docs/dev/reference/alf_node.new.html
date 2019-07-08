@@ -157,16 +157,12 @@
 
 <span class='kw'>if</span> (!<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/NULL'>is.null</a></span>(<span class='no'>my_session</span>)) {
 
-  <span class='co'># generate unique document name</span>
-  <span class='no'>my_document_name</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Round'>round</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/proc.time'>proc.time</a></span>()<span class='kw'>[[</span><span class='fl'>3</span>]]), <span class='st'>".txt"</span>, <span class='kw'>sep</span><span class='kw'>=</span><span class='st'>""</span>)
-  <span class='no'>relative_path</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste</a></span>(<span class='st'>"test/"</span>, <span class='no'>my_document_name</span>, <span class='kw'>sep</span><span class='kw'>=</span><span class='st'>""</span>)
-
   <span class='co'># create document</span>
   <span class='no'>my_new_document</span> <span class='kw'>&lt;-</span> <span class='fu'>alf_node.new</span>(<span class='no'>my_session</span>, <span class='kw'>node_id</span><span class='kw'>=</span><span class='st'>"-root-"</span>,
     <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(
-      <span class='kw'>name</span> <span class='kw'>=</span> <span class='no'>my_document_name</span>,
+      <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"example.txt"</span>,
       <span class='kw'>nodeType</span> <span class='kw'>=</span> <span class='st'>"cm:content"</span>,
-      <span class='kw'>relativePath</span> <span class='kw'>=</span> <span class='st'>"test"</span>
+      <span class='kw'>relativePath</span> <span class='kw'>=</span> <span class='st'>"example"</span>
     ))
 
   <span class='co'># upload content</span>
@@ -174,7 +170,7 @@
     <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/system.file'>system.file</a></span>(<span class='st'>"extdata"</span>, <span class='st'>"sample.txt"</span>, <span class='kw'>package</span><span class='kw'>=</span><span class='st'>"alfr"</span>))
 
   <span class='co'># get details of document node</span>
-  <span class='no'>my_document</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='alf_node.html'>alf_node</a></span>(<span class='no'>my_session</span>, <span class='kw'>relative_path</span> <span class='kw'>=</span> <span class='no'>relative_path</span>)
+  <span class='no'>my_document</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='alf_node.html'>alf_node</a></span>(<span class='no'>my_session</span>, <span class='kw'>relative_path</span> <span class='kw'>=</span> <span class='st'>"example/example.txt"</span>)
 
   <span class='co'># output the name of the document</span>
   <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>my_document</span>$<span class='no'>name</span>)
@@ -197,7 +193,16 @@
 
   <span class='co'># print updated content size</span>
   <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>my_updated_document</span>$<span class='no'>content</span>$<span class='no'>size</span>)
-}</div><div class='output co'>#&gt; <span class='error'>Error in alf_method("POST", endpoint, ticket, params, as, body): A duplicate node was found.  Please ensure name is unique. (409)</span></div></pre>
+
+  <span class='co'># delete document</span>
+  <span class='fu'><a href='alf_node.delete.html'>alf_node.delete</a></span>(<span class='no'>my_session</span>, <span class='no'>my_document</span>$<span class='no'>id</span>)
+}</div><div class='output co'>#&gt; [1] "example.txt"
+#&gt; [1] "text/plain"
+#&gt; [1] "Plain Text"
+#&gt; [1] 45
+#&gt; [1] "ISO-8859-1"
+#&gt; [1] "this is a sample txt file" "it has two lines"         
+#&gt; [1] 69</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

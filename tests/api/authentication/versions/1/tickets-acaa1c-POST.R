@@ -1,17 +1,17 @@
 structure(list(url = "http://localhost:8080/alfresco/api/-default-/public/authentication/versions/1/tickets", 
     status_code = 403L, headers = structure(list(server = "Apache-Coyote/1.1", 
         `content-type` = "application/json;charset=UTF-8", `content-length` = "269", 
-        date = "Fri, 17 May 2019 03:51:41 GMT"), class = c("insensitive", 
+        date = "Mon, 08 Jul 2019 03:04:44 GMT"), class = c("insensitive", 
     "list")), all_headers = list(list(status = 403L, version = "HTTP/1.1", 
         headers = structure(list(server = "Apache-Coyote/1.1", 
             `content-type` = "application/json;charset=UTF-8", 
-            `content-length` = "269", date = "Fri, 17 May 2019 03:51:41 GMT"), class = c("insensitive", 
+            `content-length` = "269", date = "Mon, 08 Jul 2019 03:04:44 GMT"), class = c("insensitive", 
         "list")))), cookies = structure(list(domain = logical(0), 
         flag = logical(0), path = logical(0), secure = logical(0), 
         expiration = structure(numeric(0), class = c("POSIXct", 
         "POSIXt")), name = logical(0), value = logical(0)), row.names = integer(0), class = "data.frame"), 
-    content = charToRaw("{\"error\":{\"errorKey\":\"Login failed\",\"statusCode\":403,\"briefSummary\":\"04170013 Login failed\",\"stackTrace\":\"For security reasons the stack trace is no longer displayed, but the property is kept for previous versions\",\"descriptionURL\":\"https://api-explorer.alfresco.com\"}}"), 
-    date = structure(1558065101, class = c("POSIXct", "POSIXt"
+    content = charToRaw("{\"error\":{\"errorKey\":\"Login failed\",\"statusCode\":403,\"briefSummary\":\"06080130 Login failed\",\"stackTrace\":\"For security reasons the stack trace is no longer displayed, but the property is kept for previous versions\",\"descriptionURL\":\"https://api-explorer.alfresco.com\"}}"), 
+    date = structure(1562555084, class = c("POSIXct", "POSIXt"
     ), tzone = "GMT"), times = c(redirect = 0, namelookup = 1e-06, 
-    connect = 1e-06, pretransfer = 1e-06, starttransfer = 1e-06, 
-    total = 0)), class = "response")
+    connect = 1e-06, pretransfer = 1e-06, starttransfer = 0.015, 
+    total = 0.015)), class = "response")

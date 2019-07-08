@@ -48,8 +48,27 @@ alf_node.new <- function(session, node_id, node_details) {
     as.node(session)
 }
 
+##
+#' @title Deletes an Alfresco node
+#' @description
+#' Deletes an Alfresco node identified by \code{node_id}. If the node is a folder then all the
+#' delete recurses through the primary children.
+#' @param session valid Alfresco repository session
+#' @param node_id node id to delete
+#' @param permanent indicates whether the node is permanently deleted or places in the trashcan where
+#' where it can be recovered from.  \code{FALSE} by default.
+#' @example R/examples/example_alf_node.R
+#' @export
+##
+alf_node.delete <- function(session, node_id, permanent = FALSE) {
+
+  # TODO deal with invaild session
+
+  # DELETE node
+  alf_DELETE(session$node_endpoint(node_id), session$ticket, params=list(permanent=permanent))
+}
+
 ## TODO alf_node.exists
-## TODO alf_node.delete
 
 ##
 # Helper to represent response as node information
