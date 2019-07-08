@@ -2,18 +2,18 @@ structure(list(url = "http://localhost:8080/alfresco/api/-default-/public/alfres
     status_code = 201L, headers = structure(list(server = "Apache-Coyote/1.1", 
         `cache-control` = "no-cache", expires = "Thu, 01 Jan 1970 00:00:00 GMT", 
         pragma = "no-cache", `content-type` = "application/json;charset=UTF-8", 
-        `content-length` = "423", date = "Mon, 08 Jul 2019 01:04:05 GMT"), class = c("insensitive", 
+        `content-length` = "423", date = "Mon, 08 Jul 2019 02:43:36 GMT"), class = c("insensitive", 
     "list")), all_headers = list(list(status = 201L, version = "HTTP/1.1", 
         headers = structure(list(server = "Apache-Coyote/1.1", 
             `cache-control` = "no-cache", expires = "Thu, 01 Jan 1970 00:00:00 GMT", 
             pragma = "no-cache", `content-type` = "application/json;charset=UTF-8", 
-            `content-length` = "423", date = "Mon, 08 Jul 2019 01:04:05 GMT"), class = c("insensitive", 
+            `content-length` = "423", date = "Mon, 08 Jul 2019 02:43:36 GMT"), class = c("insensitive", 
         "list")))), cookies = structure(list(domain = logical(0), 
         flag = logical(0), path = logical(0), secure = logical(0), 
         expiration = structure(numeric(0), class = c("POSIXct", 
         "POSIXt")), name = logical(0), value = logical(0)), row.names = integer(0), class = "data.frame"), 
-    content = charToRaw("{\"entry\":{\"aspectNames\":[\"cm:auditable\"],\"createdAt\":\"2019-07-08T01:04:05.959+0000\",\"isFolder\":true,\"isFile\":false,\"createdByUser\":{\"id\":\"admin\",\"displayName\":\"Administrator\"},\"modifiedAt\":\"2019-07-08T01:04:05.959+0000\",\"modifiedByUser\":{\"id\":\"admin\",\"displayName\":\"Administrator\"},\"name\":\"test-alf-node\",\"id\":\"f8408716-5e4d-473f-bb46-d2b82be26455\",\"nodeType\":\"cm:folder\",\"parentId\":\"766db199-b973-43d5-8048-25d78b388e14\"}}"), 
-    date = structure(1562547845, class = c("POSIXct", "POSIXt"
+    content = charToRaw("{\"entry\":{\"aspectNames\":[\"cm:auditable\"],\"createdAt\":\"2019-07-08T02:43:36.523+0000\",\"isFolder\":true,\"isFile\":false,\"createdByUser\":{\"id\":\"admin\",\"displayName\":\"Administrator\"},\"modifiedAt\":\"2019-07-08T02:43:36.523+0000\",\"modifiedByUser\":{\"id\":\"admin\",\"displayName\":\"Administrator\"},\"name\":\"test-alf-node\",\"id\":\"84bc92f2-cc1e-45cb-a0f5-e7ecc0426512\",\"nodeType\":\"cm:folder\",\"parentId\":\"766db199-b973-43d5-8048-25d78b388e14\"}}"), 
+    date = structure(1562553816, class = c("POSIXct", "POSIXt"
     ), tzone = "GMT"), times = c(redirect = 0, namelookup = 1e-06, 
     connect = 1e-06, pretransfer = 1e-06, starttransfer = 0.016, 
     total = 0.016)), class = "response")
