@@ -105,7 +105,6 @@ mocked_test_that(
 
 ## TODO negative test: invalid node id
 
-## TODO test upload content
 mocked_test_that(
 
   "Given a vaild content node with no content,
@@ -113,9 +112,6 @@ mocked_test_that(
    When I try to upload the text file,
    Then I am successful,
    And I can access information about the file uploaded to the content node", {
-
-     #session <- alf_session(test_server, admin_username, admin_password)
-     #node <- alf_node(session, relative_path = "test-alf-node/test-alf-node.txt")
 
      node <-
        alf_session(test_server, admin_username, admin_password) %>%
@@ -138,8 +134,25 @@ mocked_test_that(
    }
 )
 
-
 ## TODO test read content
+mocked_test_that(
+
+  "Given a valid content node with uploaded content,
+   When I try to read the content,
+   Then I am successful", {
+
+     node <- alf_session(test_server, admin_username, admin_password) %>%
+       alf_node(relative_path = "test-alf-node/test-alf-node-content-upload.txt")
+
+     file <- file(node$content$as.file(), "r")
+     content <- readLines(file)
+     close(file)
+
+     expect_equal(length(content), 2)
+     expect_equal(nchar(content[[1]]) + nchar(content[[2]]), 45-4)
+
+   }
+)
 
 ## TODO test update content
 

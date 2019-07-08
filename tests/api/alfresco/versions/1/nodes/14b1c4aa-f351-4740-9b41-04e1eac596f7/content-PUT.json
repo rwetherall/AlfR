@@ -1,29 +1,31 @@
 {
     "entry": {
         "aspectNames": [
-            "cm:auditable"
+            "cm:titled",
+            "cm:auditable",
+            "cm:author"
         ],
-        "createdAt": "2019-07-08T02:43:37.751+0000",
+        "createdAt": "2019-07-08T03:04:35.536+0000",
         "isFolder": false,
         "isFile": true,
         "createdByUser": {
             "id": "admin",
             "displayName": "Administrator"
         },
-        "modifiedAt": "2019-07-08T02:43:37.751+0000",
+        "modifiedAt": "2019-07-08T03:04:35.575+0000",
         "modifiedByUser": {
             "id": "admin",
             "displayName": "Administrator"
         },
-        "name": "test-alf-node.txt",
-        "id": "d7e6728f-b474-4658-984b-e17901647bc8",
+        "name": "test-alf-node-content-upload.txt",
+        "id": "14b1c4aa-f351-4740-9b41-04e1eac596f7",
         "nodeType": "cm:content",
         "content": {
             "mimeType": "text/plain",
             "mimeTypeName": "Plain Text",
-            "sizeInBytes": 0,
-            "encoding": "UTF-8"
+            "sizeInBytes": 45,
+            "encoding": "ISO-8859-1"
         },
-        "parentId": "84bc92f2-cc1e-45cb-a0f5-e7ecc0426512"
+        "parentId": "132c3798-aca6-4c44-8ab0-73e169ad5b0c"
     }
 }
