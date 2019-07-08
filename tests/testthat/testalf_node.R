@@ -69,7 +69,7 @@ mocked_test_that(
 mocked_test_that(
   "Given a valid session,
    And a content node,
-   When I try to get the node,
+   When I try to get the node using a relative path,
    Then I am successful,
    And I can inspect the properties of the content node", {
 
@@ -84,7 +84,22 @@ mocked_test_that(
 
 ## TODO negative test: invalid relative path
 
-## TODO test: specify node id rather than relative path
+mocked_test_that(
+  "Given a valid session,
+   And a content node,
+   When I try to get the node using a node id,
+   Then I am successful,
+   And I can inspect the properties of the content node", {
+
+  session <- alf_session(test_server, admin_username, admin_password)
+  node <- alf_node(session, relative_path = "test-alf-node/test-alf-node.txt")
+  expect_false(is.null(node))
+
+  node_by_id <- alf_node(session, node$id)
+  expect_false(is.null(node_by_id))
+  expect_equal(node_by_id$id, node$id)
+  expect_equal(node_by_id$name, "test-alf-node.txt")
+})
 
 ## TODO negative test: invalid node id
 
