@@ -1,7 +1,12 @@
 ## alfr 1.2.0
 
+* Added folder and document delete
 * Use pkgdown to generate package site documentation
 * Improved examples
+* Unit test refactor
+   - tests atomic
+   - mocked API easy to refresh
+   - coverage > 90%
 
 ## alfr 1.1.0
 
