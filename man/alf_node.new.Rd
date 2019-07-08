@@ -27,16 +27,12 @@ my_session <- tryCatch(
 
 if (!is.null(my_session)) {
 
-  # generate unique document name
-  my_document_name <- paste(round(proc.time()[[3]]), ".txt", sep="")
-  relative_path <- paste("test/", my_document_name, sep="")
-
   # create document
   my_new_document <- alf_node.new(my_session, node_id="-root-",
     list(
-      name = my_document_name,
+      name = "example.txt",
       nodeType = "cm:content",
-      relativePath = "test"
+      relativePath = "example"
     ))
 
   # upload content
@@ -44,7 +40,7 @@ if (!is.null(my_session)) {
     system.file("extdata", "sample.txt", package="alfr"))
 
   # get details of document node
-  my_document <- alf_node(my_session, relative_path = relative_path)
+  my_document <- alf_node(my_session, relative_path = "example/example.txt")
 
   # output the name of the document
   print(my_document$name)
@@ -67,5 +63,8 @@ if (!is.null(my_session)) {
 
   # print updated content size
   print(my_updated_document$content$size)
+
+  # delete document
+  alf_node.delete(my_session, my_document$id)
 }
 }

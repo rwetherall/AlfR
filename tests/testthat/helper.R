@@ -6,7 +6,8 @@ set_requester(function (request) {
   gsub_request(request, "http://localhost:8080/alfresco/api/-default-/public/", "api/")
 })
 
-test_execution_mode <- "mock"
+test_execution_mode <- Sys.getenv("TEST_EXECUTION_MODE", unset="mock")
+print(paste("Test Execution Mode:", test_execution_mode))
 
 test_server <- "http://localhost:8080"
 

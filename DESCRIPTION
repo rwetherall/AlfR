@@ -28,7 +28,8 @@ Suggests:
     rmarkdown,
     covr,
     remotes,
-    spelling
+    spelling,
+    fs
 VignetteBuilder: knitr
 SystemRequirements: Alfresco Content Repository (Community or Enterprise)
 Language: en-US
