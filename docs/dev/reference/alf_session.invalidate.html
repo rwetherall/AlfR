@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>alfr: A package for connecting with Alfresco — alfr • alfr</title>
+<title>Invalidates a session. — alf_session.invalidate • alfr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,20 +30,9 @@
 
 
 
-<meta property="og:title" content="alfr: A package for connecting with Alfresco — alfr" />
+<meta property="og:title" content="Invalidates a session. — alf_session.invalidate" />
 
-<meta property="og:description" content="The alfr package provides a way to connect to Alfresco and interact with the contents of the repository.
-Session
-alf_session - connection session to an Alfresco repository
-alf_session.is_valid - determine whether the session connection to an Alfresco repository is still valid
-alf_session.invalidate - invalidates a session so it can no longer use used to connect to an Alfresco repository
-" />
-
-<meta property="og:description" content="Nodes
-alf_node - get the details of a folder or content node
-alf_node.new - creates a new folder or content node
-alf_node.delete - deletes a folder or content node
-" />
+<meta property="og:description" content="Invalidates a valid session so it can no longer be used to connect to an Alfresco repository." />
 <meta name="twitter:card" content="summary" />
 
 <meta name="robots" content="noindex">
@@ -125,38 +114,65 @@ alf_node.delete - deletes a folder or content node
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>alfr: A package for connecting with Alfresco</h1>
-    <small class="dont-index">Source: <a href='https://github.com/rwetherall/alfr/blob/master/R/alfr.R'><code>R/alfr.R</code></a></small>
-    <div class="hidden name"><code>alfr.Rd</code></div>
+    <h1>Invalidates a session.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/rwetherall/alfr/blob/master/R/alf_session.R'><code>R/alf_session.R</code></a></small>
+    <div class="hidden name"><code>alf_session.invalidate.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>The <code>alfr</code> package provides a way to connect to Alfresco and interact with the contents of the repository.</p>
-<p>Session</p><ul>
-<li><p><code><a href='alf_session.html'>alf_session</a></code> - connection session to an Alfresco repository</p></li>
-<li><p><code><a href='alf_session.is_valid.html'>alf_session.is_valid</a></code> - determine whether the session connection to an Alfresco repository is still valid</p></li>
-<li><p><code><a href='alf_session.invalidate.html'>alf_session.invalidate</a></code> - invalidates a session so it can no longer use used to connect to an Alfresco repository</p></li>
-</ul>
-
-    <p>Nodes</p><ul>
-<li><p><code><a href='alf_node.html'>alf_node</a></code> - get the details of a folder or content node</p></li>
-<li><p><code><a href='alf_node.new.html'>alf_node.new</a></code> - creates a new folder or content node</p></li>
-<li><p><code><a href='alf_node.delete.html'>alf_node.delete</a></code> - deletes a folder or content node</p></li>
-</ul>
+    <p>Invalidates a valid session so it can no longer be used to connect to an Alfresco repository.</p>
     
     </div>
 
-        
+    <pre class="usage"><span class='fu'>alf_session.invalidate</span>(<span class='no'>session</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>session</th>
+      <td><p>session</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p><code>TRUE</code> if session has been successfully invalidated, <code>FALSE</code> if session was
+already invalid.</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># try to establish a connection to the alfresco content repository</span>
+<span class='no'>my_session</span> <span class='kw'>&lt;-</span>
+  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/conditions'>tryCatch</a></span>(
+    <span class='fu'><a href='alf_session.html'>alf_session</a></span>(<span class='st'>"http://localhost:8080"</span>, <span class='st'>"admin"</span>, <span class='st'>"admin"</span>),
+    <span class='kw'>error</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>e</span>) <span class='kw'>NULL</span>)
+
+<span class='kw'>if</span> (!<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/NULL'>is.null</a></span>(<span class='no'>my_session</span>)) {
+
+  <span class='co'># output session information</span>
+  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste</a></span>(<span class='st'>"Session: [ticket = "</span>, <span class='no'>my_session</span>$<span class='no'>ticket</span>,
+                      <span class='st'>", server = "</span>, <span class='no'>my_session</span>$<span class='no'>server</span>, <span class='st'>"]"</span>, <span class='kw'>sep</span><span class='kw'>=</span><span class='st'>""</span>))
+
+  <span class='co'># verify that the session is valid</span>
+  <span class='kw'>if</span> (<span class='fu'><a href='alf_session.is_valid.html'>alf_session.is_valid</a></span>(<span class='no'>my_session</span>)) <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='st'>"Session verified as valid."</span>)
+
+  <span class='co'># invalidate the session so that it can no longer be used</span>
+  <span class='fu'>alf_session.invalidate</span>(<span class='no'>my_session</span>)
+}</div><div class='output co'>#&gt; [1] "Session: [ticket = TICKET_1aa6378116f59c5423e1951191be2e4d88270175, server = http://localhost:8080]"
+#&gt; [1] "Session verified as valid."</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
-    <h2>Author</h2>
-    <p>Roy Wetherall <a href='mailto:rwetherall@gmail.com'>rwetherall@gmail.com</a></p>
   </div>
 </div>
 
