@@ -30,7 +30,7 @@ navbar:
       text: Change Log
       href: news/index.html
     dev:
-      text: Development Version
+      text: Dev Version
       href: dev/index.html
     github:
       icon: fa-github fa-lg

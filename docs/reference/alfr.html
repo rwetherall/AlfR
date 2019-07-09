@@ -33,8 +33,16 @@
 <meta property="og:title" content="alfr: A package for connecting with Alfresco — alfr" />
 
 <meta property="og:description" content="The alfr package provides a way to connect to Alfresco and interact with the contents of the repository.
-alf_session - connection session to Alfresco repository
-alf_node - Alfresco node
+Session
+alf_session - connection session to an Alfresco repository
+alf_session.is_valid - determine whether the session connection to an Alfresco repository is still valid
+alf_session.invalidate - invalidates a session so it can no longer use used to connect to an Alfresco repository
+" />
+
+<meta property="og:description" content="Nodes
+alf_node - get the details of a folder or content node
+alf_node.new - creates a new folder or content node
+alf_node.delete - deletes a folder or content node
 " />
 <meta name="twitter:card" content="summary" />
 
@@ -66,7 +74,7 @@ alf_node - Alfresco node
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">alfr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.0</span>
       </span>
     </div>
 
@@ -79,11 +87,11 @@ alf_node - Alfresco node
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../reference/index.html">API Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
+    Documentation
      
     <span class="caret"></span>
   </a>
@@ -94,7 +102,10 @@ alf_node - Alfresco node
   </ul>
 </li>
 <li>
-  <a href="../news/index.html">Changelog</a>
+  <a href="../news/index.html">Change Log</a>
+</li>
+<li>
+  <a href="../dev/index.html">Dev Version</a>
 </li>
       </ul>
       
@@ -124,9 +135,17 @@ alf_node - Alfresco node
 
     <div class="ref-description">
     
-    <p>The <code>alfr</code> package provides a way to connect to Alfresco and interact with the contents of the repository.</p><ul>
-<li><p><code><a href='alf_session.html'>alf_session</a></code> - connection session to Alfresco repository</p></li>
-<li><p><code><a href='alf_node.html'>alf_node</a></code> - Alfresco node</p></li>
+    <p>The <code>alfr</code> package provides a way to connect to Alfresco and interact with the contents of the repository.</p>
+<p>Session</p><ul>
+<li><p><code><a href='alf_session.html'>alf_session</a></code> - connection session to an Alfresco repository</p></li>
+<li><p><code><a href='alf_session.is_valid.html'>alf_session.is_valid</a></code> - determine whether the session connection to an Alfresco repository is still valid</p></li>
+<li><p><code><a href='alf_session.invalidate.html'>alf_session.invalidate</a></code> - invalidates a session so it can no longer use used to connect to an Alfresco repository</p></li>
+</ul>
+
+    <p>Nodes</p><ul>
+<li><p><code><a href='alf_node.html'>alf_node</a></code> - get the details of a folder or content node</p></li>
+<li><p><code><a href='alf_node.new.html'>alf_node.new</a></code> - creates a new folder or content node</p></li>
+<li><p><code><a href='alf_node.delete.html'>alf_node.delete</a></code> - deletes a folder or content node</p></li>
 </ul>
     
     </div>

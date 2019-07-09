@@ -7,7 +7,7 @@
     <loc>https://rwetherall.github.io/alfr//reference/alfr.html</loc>
   </url>
   <url>
-    <loc>https://rwetherall.github.io/alfr//reference/alf_GET.html</loc>
+    <loc>https://rwetherall.github.io/alfr//reference/alf_node.delete.html</loc>
   </url>
   <url>
     <loc>https://rwetherall.github.io/alfr//reference/alf_node.new.html</loc>
@@ -16,10 +16,10 @@
     <loc>https://rwetherall.github.io/alfr//reference/alf_node.html</loc>
   </url>
   <url>
-    <loc>https://rwetherall.github.io/alfr//reference/alf_POST.html</loc>
+    <loc>https://rwetherall.github.io/alfr//reference/alf_session.invalidate.html</loc>
   </url>
   <url>
-    <loc>https://rwetherall.github.io/alfr//reference/alf_PUT.html</loc>
+    <loc>https://rwetherall.github.io/alfr//reference/alf_session.is_valid.html</loc>
   </url>
   <url>
     <loc>https://rwetherall.github.io/alfr//reference/alf_session.html</loc>

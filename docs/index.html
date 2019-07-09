@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">alfr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.0</span>
       </span>
     </div>
 
@@ -46,11 +46,11 @@
   </a>
 </li>
 <li>
-  <a href="reference/index.html">Reference</a>
+  <a href="reference/index.html">API Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
+    Documentation
      
     <span class="caret"></span>
   </a>
@@ -61,7 +61,10 @@
   </ul>
 </li>
 <li>
-  <a href="news/index.html">Changelog</a>
+  <a href="news/index.html">Change Log</a>
+</li>
+<li>
+  <a href="dev/index.html">Dev Version</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -91,6 +94,13 @@
 <a href="#overview" class="anchor"></a>Overview</h2>
 <p>Allows you to connect to an ‘Alfresco’ content management repository and interact with its contents using simple and intuitive functions.</p>
 </div>
+<div id="getting-started" class="section level2">
+<h2 class="hasAnchor">
+<a href="#getting-started" class="anchor"></a>Getting Started</h2>
+<p>Before you can interact and manage content you will need access to an ‘Alfresco’ content management repository.</p>
+<p>This <a href="https://community.alfresco.com/community/ecm/pages/get-started">guide</a> will help you get started with ‘Alfresco’.</p>
+<p>You will need to know the root URL for the ‘Alfresco’ content management repository, <a href="http://localhost:8080" class="uri">http://localhost:8080</a> when installed locally.</p>
+</div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -99,6 +109,24 @@
 <a class="sourceLine" id="cb1-2" title="2">remotes<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/remotes/topics/install_github">install_github</a></span>(<span class="st">"rwetherall/alfr"</span>)</a></code></pre></div>
 <p>Install release version from CRAN with:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"alfr"</span>)</a></code></pre></div>
+</div>
+<div id="examples" class="section level2">
+<h2 class="hasAnchor">
+<a href="#examples" class="anchor"></a>Examples</h2>
+<p>In order to communicate with the Alfresco repository you must first establish a session connection. The location of the respository is required to do this, along with valid user credentials.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">session &lt;-<span class="st"> </span><span class="kw"><a href="reference/alf_session.html">alf_session</a></span>(<span class="st">"http://localhost:8080"</span>, <span class="st">"admin"</span>, <span class="st">"admin"</span>)</a></code></pre></div>
+<p>All content is stored on a repository node so before we can upload binary content we must first create a node to store it within. In this example we are creating a node called <code>myFile2.txt</code> in the folder <code>test</code>. <code>-root-</code> is used to reference the root repository node.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">my_file &lt;-<span class="st"> </span><span class="kw"><a href="reference/alf_node.new.html">alf_node.new</a></span>(session, <span class="st">"-root-"</span>, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">name=</span><span class="st">"myFile2.txt"</span>, <span class="dt">nodeType=</span><span class="st">"cm:content"</span>, <span class="dt">relativePath=</span><span class="st">"test"</span>))</a></code></pre></div>
+<p>Now content can be uploaded into the nodes content property where it will be stored in the Alfresco repository.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">my_file &lt;-<span class="st"> </span>my_file<span class="op">$</span>content<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/update">update</a></span>(<span class="st">"resources/testuploaddoc.txt"</span>)</a></code></pre></div>
+<p>Get a reference to the node you want to read content from.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">my_file &lt;-<span class="st"> </span><span class="kw"><a href="reference/alf_node.new.html">alf_node.new</a></span>(session, <span class="st">"-root-"</span>, <span class="dt">relativePath=</span><span class="st">"test/myFile2.txt"</span>)</a></code></pre></div>
+<p>Content stored in a repository node can then be read to the client by opening a connection and reading the contents.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">con &lt;-<span class="st"> </span>my_file<span class="op">$</span>content<span class="op">$</span><span class="kw">as.file</span>(<span class="st">"resources/download.txt"</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/connections">file</a></span>(<span class="st">"r"</span>)</a>
+<a class="sourceLine" id="cb7-2" title="2">content_lines &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/readLines">readLines</a></span>(con)</a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/connections">close</a></span>(con)</a></code></pre></div>
+<p>With a reference to the node that you want to delete from the repository.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw"><a href="reference/alf_node.delete.html">alf_node.delete</a></span>(session, node<span class="op">$</span>id)</a></code></pre></div>
 </div>
 </div>
   </div>
@@ -135,7 +163,7 @@
 <ul class="list-unstyled">
 <li><a href="https://travis-ci.com/rwetherall/alfr"><img src="https://travis-ci.com/rwetherall/alfr.svg?branch=master" alt="Travis build status"></a></li>
 <li><a href="https://ci.appveyor.com/project/rwetherall/alfr"><img src="https://ci.appveyor.com/api/projects/status/github/rwetherall/alfr?branch=master&amp;svg=true" alt="AppVeyor build status"></a></li>
-<li><a href="https://codecov.io/gh/rwetherall/alfr?branch=master"><img src="https://codecov.io/gh/rwetherall/alfr/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://coveralls.io/github/rwetherall/alfr?branch=master"><img src="https://coveralls.io/repos/github/rwetherall/alfr/badge.svg?branch=master" alt="Coverage Status"></a></li>
 <li><a href="https://CRAN.R-project.org/package=alfr"><img src="https://www.r-pkg.org/badges/version/alfr" alt="CRAN status"></a></li>
 <li><a href="https://cran.r-project.org/package=alfr"><img src="https://cranlogs.r-pkg.org/badges/alfr"></a></li>
 </ul>

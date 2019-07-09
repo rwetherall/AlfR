@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get connection session to Alfresco content repository — alf_session • alfr</title>
+<title>Determine whether a session is valid. — alf_session.is_valid • alfr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,10 +30,9 @@
 
 
 
-<meta property="og:title" content="Get connection session to Alfresco content repository — alf_session" />
+<meta property="og:title" content="Determine whether a session is valid. — alf_session.is_valid" />
 
-<meta property="og:description" content="Validates authentication details with Alfresco content repository, returning ticket, server details and endpoints if
-successful." />
+<meta property="og:description" content="Determines whether a given session is still valid or not." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -118,47 +117,38 @@ successful." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get connection session to Alfresco content repository</h1>
+    <h1>Determine whether a session is valid.</h1>
     <small class="dont-index">Source: <a href='https://github.com/rwetherall/alfr/blob/master/R/alf_session.R'><code>R/alf_session.R</code></a></small>
-    <div class="hidden name"><code>alf_session.Rd</code></div>
+    <div class="hidden name"><code>alf_session.is_valid.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Validates authentication details with Alfresco content repository, returning ticket, server details and endpoints if
-successful.</p>
+    <p>Determines whether a given session is still valid or not.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>alf_session</span>(<span class='no'>server</span>, <span class='no'>username</span>, <span class='no'>password</span>)</pre>
+    <pre class="usage"><span class='fu'>alf_session.is_valid</span>(<span class='no'>session</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>server</th>
-      <td><p>Alfresco server URL</p></td>
-    </tr>
-    <tr>
-      <th>username</th>
-      <td><p>user name</p></td>
-    </tr>
-    <tr>
-      <th>password</th>
-      <td><p>password</p></td>
+      <th>session</th>
+      <td><p>session</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Connection session to Alfresco repository</p>
+    <p><code>TRUE</code> if the session is valid, <code>FALSE</code> otherwise</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># try to establish a connection to the alfresco content repository</span>
 <span class='no'>my_session</span> <span class='kw'>&lt;-</span>
   <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/conditions'>tryCatch</a></span>(
-    <span class='fu'>alf_session</span>(<span class='st'>"http://localhost:8080"</span>, <span class='st'>"admin"</span>, <span class='st'>"admin"</span>),
+    <span class='fu'><a href='alf_session.html'>alf_session</a></span>(<span class='st'>"http://localhost:8080"</span>, <span class='st'>"admin"</span>, <span class='st'>"admin"</span>),
     <span class='kw'>error</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>e</span>) <span class='kw'>NULL</span>)
 
 <span class='kw'>if</span> (!<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/NULL'>is.null</a></span>(<span class='no'>my_session</span>)) {
@@ -168,11 +158,11 @@ successful.</p>
                       <span class='st'>", server = "</span>, <span class='no'>my_session</span>$<span class='no'>server</span>, <span class='st'>"]"</span>, <span class='kw'>sep</span><span class='kw'>=</span><span class='st'>""</span>))
 
   <span class='co'># verify that the session is valid</span>
-  <span class='kw'>if</span> (<span class='fu'><a href='alf_session.is_valid.html'>alf_session.is_valid</a></span>(<span class='no'>my_session</span>)) <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='st'>"Session verified as valid."</span>)
+  <span class='kw'>if</span> (<span class='fu'>alf_session.is_valid</span>(<span class='no'>my_session</span>)) <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='st'>"Session verified as valid."</span>)
 
   <span class='co'># invalidate the session so that it can no longer be used</span>
   <span class='fu'><a href='alf_session.invalidate.html'>alf_session.invalidate</a></span>(<span class='no'>my_session</span>)
-}</div><div class='output co'>#&gt; [1] "Session: [ticket = TICKET_5a5d1a70e5f1b3f2939ef1c4325ce425964d05e4, server = http://localhost:8080]"
+}</div><div class='output co'>#&gt; [1] "Session: [ticket = TICKET_4dc26bab3d05a2a90ca6cf3dbac7ec52bdc4a540, server = http://localhost:8080]"
 #&gt; [1] "Session verified as valid."</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

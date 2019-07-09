@@ -60,7 +60,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">alfr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.0</span>
       </span>
     </div>
 
@@ -73,11 +73,11 @@
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../reference/index.html">API Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
+    Documentation
      
     <span class="caret"></span>
   </a>
@@ -88,7 +88,10 @@
   </ul>
 </li>
 <li>
-  <a href="../news/index.html">Changelog</a>
+  <a href="../news/index.html">Change Log</a>
+</li>
+<li>
+  <a href="../dev/index.html">Dev Version</a>
 </li>
       </ul>
       
@@ -125,22 +128,42 @@
     <tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
+          <h2 id="section-session-management" class="hasAnchor"><a href="#section-session-management" class="anchor"></a>Session Management</h2>
+          <p class="section-desc"><p>Functions to establish and manage an authenticated session to an ‘Alfresco’ content management repository.</p></p>
         </th>
       </tr>
       <tr>
         
         <td>
-          <p><code><a href="alfr.html">alfr</a></code> </p>
+          <p><code><a href="alf_session.html">alf_session()</a></code> </p>
         </td>
-        <td><p>alfr: A package for connecting with Alfresco</p></td>
+        <td><p>Get connection session to Alfresco content repository</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="alf_GET.html">alf_GET()</a></code> </p>
+          <p><code><a href="alf_session.invalidate.html">alf_session.invalidate()</a></code> </p>
         </td>
-        <td><p>Alfresco GET method</p></td>
+        <td><p>Invalidates a session.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="alf_session.is_valid.html">alf_session.is_valid()</a></code> </p>
+        </td>
+        <td><p>Determine whether a session is valid.</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-manipulating-nodes" class="hasAnchor"><a href="#section-manipulating-nodes" class="anchor"></a>Manipulating Nodes</h2>
+          <p class="section-desc"><p>Functions to read, create, update and delete nodes. Including meta-data properties, content and folders.</p></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="alf_node.html">alf_node()</a></code> </p>
+        </td>
+        <td><p>Get Alfresco node</p></td>
       </tr><tr>
         
         <td>
@@ -150,27 +173,9 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="alf_node.html">alf_node()</a></code> </p>
+          <p><code><a href="alf_node.delete.html">alf_node.delete()</a></code> </p>
         </td>
-        <td><p>Get Alfresco node</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="alf_POST.html">alf_POST()</a></code> </p>
-        </td>
-        <td><p>Alfresco POST method</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="alf_PUT.html">alf_PUT()</a></code> </p>
-        </td>
-        <td><p>Alfresco PUT method</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="alf_session.html">alf_session()</a></code> </p>
-        </td>
-        <td><p>Get connection session to Alfresco content repository</p></td>
+        <td><p>Deletes an Alfresco node</p></td>
       </tr>
     </tbody>
     </table>
@@ -179,7 +184,8 @@
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#section-session-management">Session Management</a></li>
+      <li><a href="#section-manipulating-nodes">Manipulating Nodes</a></li>
     </ul>
   </div>
 </div>
