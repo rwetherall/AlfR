@@ -148,10 +148,13 @@ mocked_test_that(
      content <- readLines(file)
      close(file)
 
-     # figure out whey this fails on Travis
+     expect_false(is.null(content))
 
-     #expect_equal(length(content), 2)
-     #expect_equal(nchar(content[[1]]) + nchar(content[[2]]), 45-4)
+     # TODO this fails on Travis so only run in live mode
+     if (test_execution_mode == "live") {
+       expect_equal(length(content), 2)
+       expect_equal(nchar(content[[1]]) + nchar(content[[2]]), 45-4)
+     }
    }
 )
 

@@ -1,6 +1,10 @@
 require(magrittr)
 require(fs)
 
+mode <- function () Sys.getenv("TEST_EXECUTION_MODE", unset="mock")
+live_mode <- function () Sys.setenv(TEST_EXECUTION_MODE = "live")
+mock_mode <- function () Sys.setenv(TEST_EXECUTION_MODE = "mock")
+
 update_api_capture <- function () {
 
   # folder locations
@@ -9,7 +13,7 @@ update_api_capture <- function () {
   source <- paste(source_root, "alfresco/api/-default-/public", sep="/")
 
   # store origional execution mode
-  og_mode <- Sys.getenv("TEST_EXECUTION_MODE", unset="mock")
+  og_mode <- mode()
 
   # set execution mode to capture
   Sys.setenv(TEST_EXECUTION_MODE="capture")

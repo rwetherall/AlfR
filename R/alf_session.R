@@ -70,7 +70,7 @@ alf_session.is_valid <- function (session)
   tryCatch(
 
     # TRUE if session is valid
-    if (!is.null(alf_GET(ticket_endpoint(session$server), ticket=session$ticket))) TRUE,
+    if (!is.null(alf_GET(ticket_endpoint(session$server), ticket=session$ticket, params=list(ticket=session$ticket)))) TRUE,
 
     # FALSE if session is invalid
     error = function(e) FALSE
