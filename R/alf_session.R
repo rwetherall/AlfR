@@ -6,6 +6,7 @@ base_endpoint <- function(server, endpoint) paste(server, "/alfresco/api/-defaul
 
 # tickets endpoint function
 tickets_endpoint <- function(server) base_endpoint(server, "authentication/versions/1/tickets")
+ticket_endpoint <- function(server) paste(tickets_endpoint(server), "-me-", sep="/")
 
 ##
 #' @title
@@ -55,10 +56,25 @@ alf_session <- function (server, username, password) {
   }
 }
 
-# TODO
-# alf_session.is_valid <- function (session) {
-#
-# }
+##
+#' @title
+#' Determine whether a session is valid.
+#' @description
+#' Determines whether a given session is still valid or not.
+#' @param session session
+#' @return \code{TRUE} if the session is valid, \code{FALSE} otherwise
+#' @example R/examples/example_alf_session.R
+#' @export
+##
+alf_session.is_valid <- function (session)
+  tryCatch(
+
+    # TRUE if session is valid
+    if (!is.null(alf_GET(ticket_endpoint(session$server), ticket=session$ticket))) TRUE,
+
+    # FALSE if session is invalid
+    error = function(e) FALSE
+  )
 
 #TODO
 # alf_session.invalidate <- function (session) {
