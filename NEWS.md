@@ -1,3 +1,5 @@
+## alfr 1.3.0
+
 ## alfr 1.2.0
 
 * Added folder and document delete
