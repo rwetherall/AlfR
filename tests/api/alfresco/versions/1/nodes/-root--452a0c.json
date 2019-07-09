@@ -3,20 +3,20 @@
         "aspectNames": [
             "cm:auditable"
         ],
-        "createdAt": "2019-07-09T01:13:26.070+0000",
+        "createdAt": "2019-07-09T02:26:25.557+0000",
         "isFolder": false,
         "isFile": true,
         "createdByUser": {
             "id": "admin",
             "displayName": "Administrator"
         },
-        "modifiedAt": "2019-07-09T01:13:26.070+0000",
+        "modifiedAt": "2019-07-09T02:26:25.557+0000",
         "modifiedByUser": {
             "id": "admin",
             "displayName": "Administrator"
         },
         "name": "test-alf-node.txt",
-        "id": "b4edf9a1-d8fc-403b-9e8e-4c9fe0facf2c",
+        "id": "bc5c0357-bcaf-42bc-a413-b2177d14decb",
         "nodeType": "cm:content",
         "content": {
             "mimeType": "text/plain",
@@ -24,6 +24,6 @@
             "sizeInBytes": 0,
             "encoding": "UTF-8"
         },
-        "parentId": "7265232a-2dc8-452e-b30b-dd8eadb186fd"
+        "parentId": "5f062ce6-3d95-4a1a-bd96-c8a198313366"
     }
 }

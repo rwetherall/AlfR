@@ -2,18 +2,18 @@ structure(list(url = "http://localhost:8080/alfresco/api/-default-/public/alfres
     status_code = 201L, headers = structure(list(server = "Apache-Coyote/1.1", 
         `cache-control` = "no-cache", expires = "Thu, 01 Jan 1970 00:00:00 GMT", 
         pragma = "no-cache", `content-type` = "application/json;charset=UTF-8", 
-        `content-length` = "527", date = "Tue, 09 Jul 2019 01:13:26 GMT"), class = c("insensitive", 
+        `content-length` = "527", date = "Tue, 09 Jul 2019 02:26:25 GMT"), class = c("insensitive", 
     "list")), all_headers = list(list(status = 201L, version = "HTTP/1.1", 
         headers = structure(list(server = "Apache-Coyote/1.1", 
             `cache-control` = "no-cache", expires = "Thu, 01 Jan 1970 00:00:00 GMT", 
             pragma = "no-cache", `content-type` = "application/json;charset=UTF-8", 
-            `content-length` = "527", date = "Tue, 09 Jul 2019 01:13:26 GMT"), class = c("insensitive", 
+            `content-length` = "527", date = "Tue, 09 Jul 2019 02:26:25 GMT"), class = c("insensitive", 
         "list")))), cookies = structure(list(domain = logical(0), 
         flag = logical(0), path = logical(0), secure = logical(0), 
         expiration = structure(numeric(0), class = c("POSIXct", 
         "POSIXt")), name = logical(0), value = logical(0)), row.names = integer(0), class = "data.frame"), 
-    content = charToRaw("{\"entry\":{\"aspectNames\":[\"cm:auditable\"],\"createdAt\":\"2019-07-09T01:13:26.070+0000\",\"isFolder\":false,\"isFile\":true,\"createdByUser\":{\"id\":\"admin\",\"displayName\":\"Administrator\"},\"modifiedAt\":\"2019-07-09T01:13:26.070+0000\",\"modifiedByUser\":{\"id\":\"admin\",\"displayName\":\"Administrator\"},\"name\":\"test-alf-node.txt\",\"id\":\"b4edf9a1-d8fc-403b-9e8e-4c9fe0facf2c\",\"nodeType\":\"cm:content\",\"content\":{\"mimeType\":\"text/plain\",\"mimeTypeName\":\"Plain Text\",\"sizeInBytes\":0,\"encoding\":\"UTF-8\"},\"parentId\":\"7265232a-2dc8-452e-b30b-dd8eadb186fd\"}}"), 
-    date = structure(1562634806, class = c("POSIXct", "POSIXt"
+    content = charToRaw("{\"entry\":{\"aspectNames\":[\"cm:auditable\"],\"createdAt\":\"2019-07-09T02:26:25.557+0000\",\"isFolder\":false,\"isFile\":true,\"createdByUser\":{\"id\":\"admin\",\"displayName\":\"Administrator\"},\"modifiedAt\":\"2019-07-09T02:26:25.557+0000\",\"modifiedByUser\":{\"id\":\"admin\",\"displayName\":\"Administrator\"},\"name\":\"test-alf-node.txt\",\"id\":\"bc5c0357-bcaf-42bc-a413-b2177d14decb\",\"nodeType\":\"cm:content\",\"content\":{\"mimeType\":\"text/plain\",\"mimeTypeName\":\"Plain Text\",\"sizeInBytes\":0,\"encoding\":\"UTF-8\"},\"parentId\":\"5f062ce6-3d95-4a1a-bd96-c8a198313366\"}}"), 
+    date = structure(1562639185, class = c("POSIXct", "POSIXt"
     ), tzone = "GMT"), times = c(redirect = 0, namelookup = 1e-06, 
-    connect = 1e-06, pretransfer = 1e-06, starttransfer = 1e-06, 
-    total = 0)), class = "response")
+    connect = 1e-06, pretransfer = 1e-06, starttransfer = 0.015, 
+    total = 0.015)), class = "response")

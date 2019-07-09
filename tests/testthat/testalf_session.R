@@ -48,3 +48,24 @@ mocked_test_that(
   alf_session.is_valid(alf_sample.invalid_session) %>%
     expect_false()
 })
+
+mocked_test_that(
+
+  "Given a valid session,
+   When I invalidate the session,
+   Then it is no longer valid", {
+
+  session <- alf_session(test_server, admin_username, admin_password)
+  result <- alf_session.invalidate(session)
+  expect_true(result)
+})
+
+mocked_test_that(
+
+  "Given an invalid session,
+   When I invalidate the session,
+   Then nothing happens", {
+
+  result <- alf_session.invalidate(alf_sample.invalid_session)
+  expect_false(result)
+})

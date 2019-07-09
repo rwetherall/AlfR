@@ -14,8 +14,8 @@ structure(list(url = "http://localhost:8080/alfresco/api/-default-/public/authen
         flag = logical(0), path = logical(0), secure = logical(0), 
         expiration = structure(numeric(0), class = c("POSIXct", 
         "POSIXt")), name = logical(0), value = logical(0)), row.names = integer(0), class = "data.frame"), 
-    content = charToRaw("{\"error\":{\"errorKey\":\"framework.exception.ApiDefault\",\"statusCode\":401,\"briefSummary\":\"06090179 Authentication failed for Web Script org/alfresco/api/ResourceWebScript.get\",\"stackTrace\":\"For security reasons the stack trace is no longer displayed, but the property is kept for previous versions\",\"descriptionURL\":\"https://api-explorer.alfresco.com\"}}"), 
+    content = charToRaw("{\"error\":{\"errorKey\":\"framework.exception.ApiDefault\",\"statusCode\":401,\"briefSummary\":\"06090178 Authentication failed for Web Script org/alfresco/api/ResourceWebScript.delete\",\"stackTrace\":\"For security reasons the stack trace is no longer displayed, but the property is kept for previous versions\",\"descriptionURL\":\"https://api-explorer.alfresco.com\"}}"), 
     date = structure(1562639212, class = c("POSIXct", "POSIXt"
     ), tzone = "GMT"), times = c(redirect = 0, namelookup = 1e-06, 
-    connect = 0.016, pretransfer = 0.016, starttransfer = 0.016, 
-    total = 0.016)), class = "response")
+    connect = 1e-06, pretransfer = 1e-06, starttransfer = 1e-06, 
+    total = 0)), class = "response")

@@ -5,20 +5,20 @@
             "cm:auditable",
             "cm:author"
         ],
-        "createdAt": "2019-07-09T01:13:33.778+0000",
+        "createdAt": "2019-07-09T02:26:33.527+0000",
         "isFolder": false,
         "isFile": true,
         "createdByUser": {
             "id": "admin",
             "displayName": "Administrator"
         },
-        "modifiedAt": "2019-07-09T01:13:33.944+0000",
+        "modifiedAt": "2019-07-09T02:26:33.566+0000",
         "modifiedByUser": {
             "id": "admin",
             "displayName": "Administrator"
         },
         "name": "test-alf-node-content-upload.txt",
-        "id": "efd82ed1-70fa-41e0-afeb-0dd7b55d312b",
+        "id": "6fd1cd03-763f-4250-838d-d4d335c5118a",
         "nodeType": "cm:content",
         "content": {
             "mimeType": "text/plain",
@@ -26,6 +26,6 @@
             "sizeInBytes": 45,
             "encoding": "ISO-8859-1"
         },
-        "parentId": "7265232a-2dc8-452e-b30b-dd8eadb186fd"
+        "parentId": "5f062ce6-3d95-4a1a-bd96-c8a198313366"
     }
 }

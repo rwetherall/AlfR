@@ -3,20 +3,20 @@
         "aspectNames": [
             "cm:auditable"
         ],
-        "createdAt": "2019-07-09T01:13:24.962+0000",
+        "createdAt": "2019-07-09T02:26:24.401+0000",
         "isFolder": true,
         "isFile": false,
         "createdByUser": {
             "id": "admin",
             "displayName": "Administrator"
         },
-        "modifiedAt": "2019-07-09T01:13:38.696+0000",
+        "modifiedAt": "2019-07-09T02:26:39.429+0000",
         "modifiedByUser": {
             "id": "admin",
             "displayName": "Administrator"
         },
         "name": "test-alf-node",
-        "id": "7265232a-2dc8-452e-b30b-dd8eadb186fd",
+        "id": "5f062ce6-3d95-4a1a-bd96-c8a198313366",
         "nodeType": "cm:folder",
         "parentId": "766db199-b973-43d5-8048-25d78b388e14"
     }
