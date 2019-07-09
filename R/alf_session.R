@@ -1,5 +1,6 @@
 require(httr)
 require(magrittr)
+require(stringr)
 
 # base endpoint helper
 base_endpoint <- function(server, endpoint) paste(server, "/alfresco/api/-default-/public/", endpoint, sep="")
@@ -66,17 +67,35 @@ alf_session <- function (server, username, password) {
 #' @example R/examples/example_alf_session.R
 #' @export
 ##
-alf_session.is_valid <- function (session)
+alf_session.is_valid <- function (session) {
+
   tryCatch(
 
     # TRUE if session is valid
     if (!is.null(alf_GET(ticket_endpoint(session$server), ticket=session$ticket, params=list(ticket=session$ticket)))) TRUE,
 
-    # FALSE if session is invalid
-    error = function(e) FALSE
+    # FALSE if session is invalid, otherwise rethrow error
+    error = function(e) if (str_detect(string=e$message, pattern = "401")) FALSE else stop(e)
   )
+}
 
-#TODO
-# alf_session.invalidate <- function (session) {
-#
-# }
+##
+#' @title
+#' Invalidates a session.
+#' @description
+#' Invalidates a valid session so it can no longer be used to connect to an Alfresco repository.
+#' @param session session
+#' @example R/examples/example_alf_session.R
+#' @export
+##
+alf_session.invalidate <- function (session) {
+
+  tryCatch (
+
+    # attempt to invalidate the ticket
+    alf_DELETE(ticket_endpoint(session$server), ticket=session$ticket, params=list(ticket=session$ticket)),
+
+    # ignore 401, but rethrow everything else in case it's a genuine error
+    error = function (e) if (!str_detect(string=e$message, pattern = "401")) stop(e)
+  )
+}

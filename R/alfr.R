@@ -7,6 +7,7 @@
 #' \itemize{
 #'   \item \code{\link{alf_session}} - connection session to an Alfresco repository
 #'   \item \code{\link{alf_session.is_valid}} - determine whether the session connection to an Alfresco repository is still valid
+#'   \item \code{\link{alf_session.invalidate}} - invalidates a session so it can no longer use used to connect to an Alfresco repository
 #' }
 #'
 #' Nodes
@@ -21,4 +22,5 @@
 #' @import magrittr
 #' @import httr
 #' @import jsonlite
+#' @import stringr
 NULL
