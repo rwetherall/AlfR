@@ -1,4 +1,58 @@
 destination: docs
 url: https://rwetherall.github.io/alfr/
+
 development:
   mode: auto
+
+navbar:
+  structure:
+    left:
+    - home
+    - intro
+    - reference
+    - articles
+    - tutorials
+    - news
+    right: github
+  components:
+    home:
+      icon: fa-home fa-lg
+      href: index.html
+    reference:
+      text: API Reference
+      href: reference/index.html
+    articles:
+      text: Documentation
+      menu:
+      - text: Working with Content
+        href: articles/working_with_content.html
+    news:
+      text: Change Log
+      href: news/index.html
+    dev:
+      text: Development Version
+      href: dev/index.html
+    github:
+      icon: fa-github fa-lg
+      href: https://github.com/rwetherall/alfr
+
+reference:
+  - title: "Session Management"
+    desc: >
+      Functions to establish and manage an authenticated session to an 'Alfresco'
+      content management repository.
+    contents:
+      - '`alf_session`'
+      - '`alf_session.invalidate`'
+      - '`alf_session.is_valid`'
+  - title: "Manipulating Nodes"
+    desc: >
+      Functions to read, create, update and delete nodes.  Including meta-data properties, content
+      and folders.
+    contents:
+      - '`alf_node`'
+      - '`alf_node.new`'
+      - '`alf_node.delete`'
+
+
+
