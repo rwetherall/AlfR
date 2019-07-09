@@ -34,9 +34,8 @@ mocked_test_that(
    When I check it is valid,
    Then I am told that it is", {
 
-  alf_session(test_server, admin_username, admin_password) %>%
-    alf_session.is_valid() %>%
-    expect_true()
+  session <- alf_session(test_server, admin_username, admin_password)
+  expect_true(alf_session.is_valid(session))
 })
 
 mocked_test_that(
@@ -45,8 +44,7 @@ mocked_test_that(
    When I check it is valid,
    Then I am told that it is", {
 
-  alf_session.is_valid(alf_sample.invalid_session) %>%
-    expect_false()
+  expect_false(alf_session.is_valid(alf_sample.invalid_session))
 })
 
 mocked_test_that(

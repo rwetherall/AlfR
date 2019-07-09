@@ -3,19 +3,19 @@ structure(list(url = "http://localhost:8080/alfresco/api/-default-/public/authen
         `www-authenticate` = "Basic realm=\"Alfresco -default- tenant\"", 
         `cache-control` = "no-cache", expires = "Thu, 01 Jan 1970 00:00:00 GMT", 
         pragma = "no-cache", `content-type` = "application/json;charset=UTF-8", 
-        `transfer-encoding` = "chunked", date = "Tue, 09 Jul 2019 02:26:52 GMT"), class = c("insensitive", 
+        `transfer-encoding` = "chunked", date = "Tue, 09 Jul 2019 03:36:44 GMT"), class = c("insensitive", 
     "list")), all_headers = list(list(status = 401L, version = "HTTP/1.1", 
         headers = structure(list(server = "Apache-Coyote/1.1", 
             `www-authenticate` = "Basic realm=\"Alfresco -default- tenant\"", 
             `cache-control` = "no-cache", expires = "Thu, 01 Jan 1970 00:00:00 GMT", 
             pragma = "no-cache", `content-type` = "application/json;charset=UTF-8", 
-            `transfer-encoding` = "chunked", date = "Tue, 09 Jul 2019 02:26:52 GMT"), class = c("insensitive", 
+            `transfer-encoding` = "chunked", date = "Tue, 09 Jul 2019 03:36:44 GMT"), class = c("insensitive", 
         "list")))), cookies = structure(list(domain = logical(0), 
         flag = logical(0), path = logical(0), secure = logical(0), 
         expiration = structure(numeric(0), class = c("POSIXct", 
         "POSIXt")), name = logical(0), value = logical(0)), row.names = integer(0), class = "data.frame"), 
-    content = charToRaw("{\"error\":{\"errorKey\":\"framework.exception.ApiDefault\",\"statusCode\":401,\"briefSummary\":\"06090178 Authentication failed for Web Script org/alfresco/api/ResourceWebScript.delete\",\"stackTrace\":\"For security reasons the stack trace is no longer displayed, but the property is kept for previous versions\",\"descriptionURL\":\"https://api-explorer.alfresco.com\"}}"), 
-    date = structure(1562639212, class = c("POSIXct", "POSIXt"
+    content = charToRaw("{\"error\":{\"errorKey\":\"framework.exception.ApiDefault\",\"statusCode\":401,\"briefSummary\":\"06090192 Authentication failed for Web Script org/alfresco/api/ResourceWebScript.delete\",\"stackTrace\":\"For security reasons the stack trace is no longer displayed, but the property is kept for previous versions\",\"descriptionURL\":\"https://api-explorer.alfresco.com\"}}"), 
+    date = structure(1562643404, class = c("POSIXct", "POSIXt"
     ), tzone = "GMT"), times = c(redirect = 0, namelookup = 1e-06, 
     connect = 1e-06, pretransfer = 1e-06, starttransfer = 1e-06, 
     total = 0)), class = "response")

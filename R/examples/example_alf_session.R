@@ -1,13 +1,18 @@
 # try to establish a connection to the alfresco content repository
-my_session <- tryCatch(
-                alf_session("http://localhost:8080", "admin", "admin"),
-                error = function(e) NULL)
+my_session <-
+  tryCatch(
+    alf_session("http://localhost:8080", "admin", "admin"),
+    error = function(e) NULL)
 
 if (!is.null(my_session)) {
 
-  # output the server URL
-  print(my_session$server)
+  # output session information
+  print(paste("Session: [ticket = ", my_session$ticket,
+                      ", server = ", my_session$server, "]", sep=""))
 
-  # output the connection ticket
-  print(my_session$ticket)
+  # verify that the session is valid
+  if (alf_session.is_valid(my_session)) print("Session verified as valid.")
+
+  # invalidate the session so that it can no longer be used
+  alf_session.invalidate(my_session)
 }
