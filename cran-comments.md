@@ -9,5 +9,3 @@
 
 ## Notes
 
-v 2.1.1 removes sysdata.rda as was assumed cause of warnings seen [here](https://CRAN.R-project.org/web/checks/check_results_alfr.html)
-
