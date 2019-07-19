@@ -1,7 +1,7 @@
 Package: alfr
 Type: Package
 Title: Connectivity to 'Alfresco' Content Management Repositories
-Version: 1.3.0.9000
+Version: 1.2.1.9000
 Author: Roy Wetherall <rwetherall@gmail.com>
 Maintainer: Roy Wetherall <rwetherall@gmail.com>
 Description: Allows you to connect to an 'Alfresco' content management repository and interact

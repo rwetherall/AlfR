@@ -3,6 +3,8 @@ context("alf-session")
 require(magrittr)
 require(httptest)
 
+invalid_ticket <- "TICKET_b1433bd56ba762daeec869f6e6d8d2578c463689"
+
 mocked_test_that(
 
   "Given a valid respository,
@@ -44,7 +46,9 @@ mocked_test_that(
    When I check it is valid,
    Then I am told that it is", {
 
-  expect_false(alf_session.is_valid(alf_sample.invalid_session))
+  session <- alf_session(test_server, admin_username, admin_password)
+  session$ticket <- invalid_ticket
+  expect_false(alf_session.is_valid(session))
 })
 
 mocked_test_that(
@@ -64,6 +68,8 @@ mocked_test_that(
    When I invalidate the session,
    Then nothing happens", {
 
-  result <- alf_session.invalidate(alf_sample.invalid_session)
+  session <- alf_session(test_server, admin_username, admin_password)
+  session$ticket <- invalid_ticket
+  result <- alf_session.invalidate(session)
   expect_false(result)
 })
